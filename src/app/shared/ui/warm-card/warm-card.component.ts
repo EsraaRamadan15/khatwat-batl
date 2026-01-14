@@ -7,7 +7,7 @@ import { CardModule } from 'primeng/card';
   standalone: true,
   imports: [RouterLink, CardModule],
   templateUrl: './warm-card.component.html',
-  styleUrl: './warm-card.component.css',
+  styleUrl: './warm-card.component.scss',
 })
 
 export class WarmCardComponent {

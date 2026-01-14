@@ -7,6 +7,6 @@ import { ButtonModule } from 'primeng/button';
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, ButtonModule],
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.css']
+  styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {}
