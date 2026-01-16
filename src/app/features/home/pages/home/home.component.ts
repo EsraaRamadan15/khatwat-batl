@@ -3,21 +3,60 @@ import { FeatureColorCardComponent } from '../../../../shared/ui/feature-color-c
 import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 import { ButtonModule } from 'primeng/button';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { DownBandComponent } from '../../components/down-band/down-band.component';
+import { DownFlipCardComponent } from '../../components/down-flip-card/down-flip-card.component';
+import { JourneyLikeDownSectionComponent } from '../../components/JourneyLikeDownSection/journey-like-down-section.component';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [RouterLink, ButtonModule, FeatureColorCardComponent, RevealOnScrollDirective,NgFor],
-  templateUrl: './home.component.html'
+  imports: [CommonModule ,RouterLink, ButtonModule, FeatureColorCardComponent, RevealOnScrollDirective,DownBandComponent,DownFlipCardComponent,JourneyLikeDownSectionComponent],
+  templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   cards = [
-    { title:'قبل الزواج', desc:'وعي + فحوصات + تغذية + وقاية', badge:'وقاية', icon:'pi pi-heart', link:'/pre-marriage', from:'#F97316', to:'#FB7185', tint:'rgba(249,115,22,.10)' },
+    { title:'قبل الزواج', desc:'وعي + فحوصات + تغذية + وقاية', badge:'وقاية', icon:'pi pi-heart', link:'/cards/pre-marriage', from:'#F97316', to:'#FB7185', tint:'rgba(249,115,22,.10)' },
     { title:'خلال الحمل', desc:'وقاية طبية وغذائية ونفسية', badge:'متابعة', icon:'pi pi-shield', link:'/pregnancy', from:'#06B6D4', to:'#3B82F6', tint:'rgba(6,182,212,.10)' },
-    { title:'متلازمة داون', desc:'خطة زمنية + رعاية + تعامل تربوي', badge:'خطة', icon:'pi pi-users', link:'/down', from:'#8B5CF6', to:'#EC4899', tint:'rgba(139,92,246,.10)' },
-    { title:'طيف التوحد DSM-5', desc:'مستويات الدعم + محوري التشخيص', badge:'تشخيص', icon:'pi pi-compass', link:'/autism', from:'#14B8A6', to:'#22C55E', tint:'rgba(20,184,166,.10)' },
-    { title:'خطوات بطل', desc:'منازل الروح 7 + برنامج 7 أسابيع', badge:'7 أسابيع', icon:'pi pi-sparkles', link:'/program', from:'#A855F7', to:'#F59E0B', tint:'rgba(168,85,247,.10)' },
-    { title:'الأدوات والاستبيانات', desc:'أسئلة أمهات + مقاييس + بحث', badge:'قياس', icon:'pi pi-sliders-h', link:'/tools', from:'#EF4444', to:'#F97316', tint:'rgba(239,68,68,.10)' },
+    { title:'قسم الدعم النفسي للأم', desc:'مساندة الأم نفسيًا في رحلة القبول، الصبر، الأمل، والاستمرار', badge:'فضفضة أم', icon:'pi pi-users', link:'/down', from:'#8B5CF6', to:'#EC4899', tint:'rgba(139,92,246,.10)' },
+    { title:'قسم التثقيف الصحي', desc:'فع وعي الأم صحيًا بحالة طفلها', badge:'وعي', icon:'pi pi-compass', link:'/autism', from:'#14B8A6', to:'#22C55E', tint:'rgba(20,184,166,.10)' },
+    { title:'قسم التثقيف الغذائي', desc:'مساعدة الأم على بناء نظام غذائي داعم لصحة الطفل وتركيزه ومناعته', badge:'تثقيف', icon:'pi pi-sparkles', link:'/program', from:'#A855F7', to:'#F59E0B', tint:'rgba(168,85,247,.10)' },
+    { title:'قسم التعليم واكتشاف نقاط القوة', desc:'تمكين الام من تعليم طفلها في البيت ,اكتشاف مواهبه, تنمية قدراته', badge:'قياس', icon:'pi pi-sliders-h', link:'/tools', from:'#EF4444', to:'#F97316', tint:'rgba(239,68,68,.10)' },
+{
+  title: 'أدوات تفاعلية بالموقع',
+  desc: 'استبيانات تقييم + اختبارات نقاط القوة + منظم يومي + تحميل PDFs',
+  badge: 'أدوات',
+  icon: 'pi pi-chart-line',
+  link: '/interactive-tools',
+  from: '#4F46E5',   // Indigo
+  to:   '#06B6D4',   // Cyan
+  tint: 'rgba(79,70,229,.10)'
+},
+
+
+
+    {
+      title: 'قسم المجتمع',
+      desc: 'مساحة آمنة للأمهات: مشاركة التجارب، أسئلة وإجابات، دعم جماعي',
+      badge: 'مجتمع',
+      icon: 'pi pi-comments',
+      link: '/seven-houses',
+      from: '#F43F5E',  
+      to:   '#8B5CF6',  
+      tint: 'rgba(244,63,94,.10)'
+    },
+
+
+    {
+      title: 'تواصل معنا',
+      desc: 'إرسال استفسار + طلب استشارة + اقتراحات وشكاوى (نرد عليك بسرعة)',
+      badge: 'مساعدة',
+      icon: 'pi pi-envelope',
+      link: '/contact',
+      from: '#F59E0B', 
+      to:   '#F97316',    
+      tint: 'rgba(245,158,11,.10)'
+    },
   ];
 }

@@ -3,11 +3,11 @@
               transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
     <!-- Top colorful strip -->
-    <div class="relative p-4 pb-3" [style.background]="tint">
+    <div class="relative p-4 pb-3 h-[135px]" [style.background]="tint">
       <div class="d-flex align-items-start justify-content-between gap-2">
         <div class="d-flex align-items-center gap-2">
-          <div class="rounded-circle d-flex align-items-center justify-content-center"
-               style="width:44px;height:44px;color:white;"
+          <div class="rounded-circle d-flex align-items-center justify-content-center h-[44px] w-[44px] text-white flex-shrink-0"
+        
                [style.background]="'linear-gradient(135deg,'+from+','+to+')'">
             <i [class]="icon"></i>
           </div>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- tiny gradient border at bottom -->
-    <div style="height:5px" [style.background]="'linear-gradient(90deg,'+from+','+to+')'"></div>
+    <div  class="h-[5px]" [style.background]="'linear-gradient(90deg,'+from+','+to+')'"></div>
   </div>
 </a>
 

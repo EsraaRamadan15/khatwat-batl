@@ -1,0 +1,33 @@
+
+.flip-card{
+  display: block;
+  perspective: 1200px;
+  cursor: pointer;
+  border-radius: 20px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* ✅ flip based on checkbox state */
+.flip-toggle:checked + .flip-card .flip-card__inner{
+  transform: rotateY(180deg);
+}
+
+.flip-card__face{
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+
+.flip-card__back{
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #0EA5A6, #22C55E);
+  color: white;
+}
+

@@ -1,0 +1,12 @@
+
+::ng-deep {
+  .p-steps-item:first-child::before {
+   
+    transform: translateX(0%) !important;
+}
+
+.p-steps-item:last-child::before {
+
+    transform: translateX(100%) !important;
+}
+}

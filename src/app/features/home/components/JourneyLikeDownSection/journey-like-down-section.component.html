@@ -1,0 +1,64 @@
+<section class="relative mt-4 overflow-hidden rounded-4 bg-[#FFF6EA] border border-black/5 shadow-sm
+         rtl px-7 pt-9 pb-0 lg:px-14 lg:pt-11"
+  dir="rtl">
+  <!-- dotted background -->
+  <div class="journeyLike__dots" aria-hidden="true"></div>
+
+  <!-- top heading -->
+ <div class="relative z-10 px-1 pt-1 pb-7">
+    <h2 class="m-0 font-extrabold text-[40px] tracking-[.2px] text-slate-900">
+      {{ heading }}
+    </h2>
+    <div class="mt-1.5 font-extrabold text-[12px] tracking-[1.2px] uppercase text-slate-900/70">
+      {{ sub }}
+    </div>
+  </div>
+
+
+  <!-- cards -->
+ <div
+    class="relative z-10 grid grid-cols-1 gap-3.5 pb-6
+           lg:grid-cols-3 lg:gap-0 lg:pb-9"
+  >
+    <a
+      *ngFor="let c of cards; let i = index"
+      [routerLink]="c.link"
+      class="block no-underline text-gray-800
+             rounded-[70px] border border-black/5
+             shadow-[0_20px_40px_rgba(0,0,0,.12)]
+             transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(0,0,0,.14)]
+             px-10 py-11 pb-16 min-h-[260px] lg:min-h-[300px]
+             relative"
+      [ngClass]="{
+        'bg-[#F3D9A6] lg:[transform:translateY(26px)] lg:rounded-tr-[88px]': c.variant === 'yellow',
+        'bg-[#B8DCE6] lg:z-10 lg:[transform:translateY(-10px)] lg:mx-[-42px] lg:rounded-[88px]': c.variant === 'blue',
+        'bg-[#E8C7D9] lg:[transform:translateY(26px)] lg:rounded-tl-[88px]': c.variant === 'rose'
+      }"
+    >
+      <h3 class="m-0 mb-4 font-extrabold text-[44px] leading-[1.02] text-slate-900">
+        {{ c.title }}
+      </h3>
+
+      <p class="m-0 max-w-[320px] text-[16px] leading-[1.7] font-semibold text-slate-800/80">
+        {{ c.desc }}
+      </p>
+
+      <!-- arrow -->
+      <span
+        class="absolute left-8 bottom-7 grid place-items-center
+               w-11 h-11 rounded-full
+               border-2 border-gray-800/40 text-gray-800/90
+               bg-white/35"
+      >
+        <i class="pi pi-arrow-left"></i>
+      </span>
+    </a>
+  </div>
+
+
+  <!-- bottom navy band -->
+  <div
+    aria-hidden="true"
+    class="h-[140px] bg-[#5F8FA3] -mx-7 lg:-mx-14"
+  ></div>
+</section>

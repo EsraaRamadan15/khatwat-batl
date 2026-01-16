@@ -1,0 +1,102 @@
+<section
+  class="rounded-4 overflow-hidden border border-black/5 shadow-sm
+         md:mx-[100px]
+         bg-gradient-to-br
+         from-indigo-500/10
+         via-slate-400/10
+         to-slate-300/10">
+
+  <div class="row g-0 align-items-stretch">
+
+    <!-- LEFT: Image -->
+    <div class="col-12 col-lg-6 relative min-h-[260px] bg-white">
+      <img
+        src="assets/images/down-band.jpg"
+        alt="متلازمة داون"
+        class="w-full h-full object-cover block"
+      />
+
+      <!-- Stamp -->
+      <div
+        class="absolute left-4 bottom-4
+               rounded-2xl px-4 py-3
+               bg-white/80 border border-black/10
+               backdrop-blur-sm">
+
+        <div class="font-extrabold text-lg">متلازمة داون</div>
+        <div class="text-sm text-slate-500">
+          نَفهم.. نَحتوي.. نُنمّي
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="col-12 col-lg-6 relative">
+      <div class="p-4 md:p-5 relative">
+
+        <!-- Pill -->
+        <div
+          class="inline-flex items-center gap-2
+                 px-3 py-2 rounded-full
+                 bg-white/80 border border-black/5
+                 font-bold text-slate-900">
+
+          <i class="pi pi-heart text-orange-500"></i>
+          <span>مسار متلازمة داون</span>
+          <span class="text-slate-500 font-normal">
+            معلومة + دعم + أدوات عملية
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h2 class="mt-3 font-extrabold text-slate-900 text-[clamp(22px,3vw,34px)]">
+          خلّينا نحكي بهدوء…
+          <span class="block text-teal-500">
+            عن طفل متلازمة داون وكيف نساعده يلمع
+          </span>
+        </h2>
+
+        <!-- Description -->
+        <p class="mt-3 text-slate-500 leading-relaxed">
+          هنا هتلاقي معلومات مبسّطة للأهل، خطوات متابعة يومية،
+          أفكار لتنمية المهارات، ودعم نفسي للأم — لأن الرحلة
+          محتاجة قلب مطمّن وخطة واضحة.
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-4 flex flex-col sm:flex-row gap-2">
+          <a
+            routerLink="/down"
+            class="px-4 py-2 rounded-4 text-white font-semibold
+                   bg-gradient-to-br from-teal-500 to-emerald-500
+                   shadow-[0_14px_28px_rgba(34,197,94,.18)]">
+            ادخلي قسم متلازمة داون
+          </a>
+
+          <a
+            routerLink="/interactive-tools"
+            class="px-4 py-2 rounded-4 bg-white
+                   border border-black/10 font-semibold">
+            جرّبي الأدوات التفاعلية
+          </a>
+        </div>
+
+        <!-- Arrow -->
+        <a
+          routerLink="/down"
+          aria-label="اذهبي للقسم"
+          class="absolute left-4 bottom-[1px]
+                 w-11 h-11 rounded-full
+                 grid place-items-center
+                 bg-white/70
+                 border border-teal-500/30
+                 text-teal-500
+                 no-underline">
+          <i class="pi pi-arrow-left"></i>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
