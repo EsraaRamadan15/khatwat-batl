@@ -1,0 +1,177 @@
+<section dir="rtl" class="max-w-[1100px] mx-auto px-3">
+  <!-- HERO -->
+  <header
+    class="rounded-4 overflow-hidden border border-black/5 shadow-sm
+           bg-gradient-to-br from-violet-500/10 via-sky-500/10 to-emerald-500/10">
+    <div class="p-4 md:p-6 relative">
+      <!-- badge -->
+      <div
+        class="inline-flex items-center gap-2 px-3 py-2 rounded-full
+               bg-white/80 border border-black/5 font-extrabold text-slate-900">
+        <i class="pi pi-sparkles text-violet-500"></i>
+        <span>DSM-5 / DSM-5-TR</span>
+        <span class="text-slate-500 font-normal">تصنيف طيف التوحد</span>
+      </div>
+
+      <h1 class="mt-3 font-extrabold text-slate-900 text-[clamp(22px,3.2vw,40px)] leading-tight">
+        {{ title }}
+      </h1>
+
+      <p class="mt-2 text-slate-600 font-semibold">
+        {{ subtitle }}
+      </p>
+
+      <p class="mt-3 text-slate-600 leading-relaxed max-w-[980px]">
+        {{ intro }}
+      </p>
+
+      <!-- highlight -->
+      <div
+        class="mt-4 flex items-start gap-2 rounded-3xl px-4 py-3
+               bg-white/70 border border-black/5">
+        <i class="pi pi-info-circle text-teal-600 mt-1"></i>
+        <div class="text-slate-700 font-semibold leading-relaxed">
+          لازم المحورين يكونوا موجودين للتشخيص (التواصل الاجتماعي + السلوكيات النمطية/الحسية).
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1) OLD TYPES REMOVED -->
+  <section class="mt-4 rounded-4 border border-black/5 bg-white shadow-sm overflow-hidden">
+    <div class="p-4 md:p-5">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <h2 class="m-0 font-extrabold text-slate-900 text-xl">أولًا: إلغاء الأنواع القديمة</h2>
+
+        <span class="px-3 py-1.5 rounded-full text-sm font-bold bg-slate-900/5 text-slate-700">
+          الاسم الموحّد: {{ unifiedName }}
+        </span>
+      </div>
+
+      <p class="mt-2 text-slate-600 leading-relaxed">
+        لم يعد هناك تقسيمات منفصلة مثل أسبرجر أو PDD-NOS — الجميع أصبح تحت تشخيص واحد.
+      </p>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span
+          *ngFor="let x of removedOld"
+          class="px-3 py-1.5 rounded-full text-sm font-bold
+                 bg-rose-500/10 text-rose-700 border border-rose-500/15">
+          ✖ {{ x }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) LEVELS -->
+  <section class="mt-4">
+    <div class="flex items-end justify-between flex-wrap gap-2">
+      <div>
+        <h2 class="m-0 font-extrabold text-slate-900 text-2xl">ثانيًا: مستويات طيف التوحد (3 Levels)</h2>
+        <p class="mt-1 text-slate-600 font-semibold">التصنيف الآن حسب “شدة الدعم المطلوب”.</p>
+      </div>
+    </div>
+
+    <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+      <article
+        *ngFor="let lv of levels"
+        class="rounded-4 border border-black/5 bg-white shadow-sm overflow-hidden
+               transition-transform hover:-translate-y-1">
+        <!-- top strip -->
+        <div class="p-4 bg-gradient-to-br" [ngClass]="lv.gradientFrom + ' ' + lv.gradientTo + '/15'">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="font-extrabold text-slate-900 text-lg">{{ lv.title }}</div>
+              <div class="text-slate-700 font-semibold mt-1">{{ lv.support }}</div>
+            </div>
+
+            <span
+              class="px-3 py-1.5 rounded-full text-sm font-extrabold border border-black/5"
+              [ngClass]="lv.badgeBg">
+              Level {{ lv.level }}
+            </span>
+          </div>
+        </div>
+
+        <!-- body -->
+        <div class="p-4">
+          <ul class="m-0 p-0 list-none grid gap-2">
+            <li *ngFor="let p of lv.points" class="flex items-start gap-2 text-slate-700 leading-relaxed">
+              <span
+                class="mt-1 w-2.5 h-2.5 rounded-full bg-slate-900/20 shrink-0"></span>
+              <span class="font-semibold">{{ p }}</span>
+            </li>
+          </ul>
+
+          <div
+            *ngIf="lv.note"
+            class="mt-3 rounded-3xl px-3 py-2 border bg-slate-900/5 text-slate-700 font-semibold"
+            [ngClass]="lv.ring">
+            💡 {{ lv.note }}
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3) TWO PILLARS -->
+  <section class="mt-4 rounded-4 border border-black/5 bg-white shadow-sm overflow-hidden">
+    <div class="p-4 md:p-5">
+      <h2 class="m-0 font-extrabold text-slate-900 text-xl">ثالثًا: التشخيص الجديد يشمل محورين أساسيين</h2>
+      <p class="mt-2 text-slate-600 font-semibold">
+        المحورين لازم يكونوا موجودين معًا لتأكيد التشخيص.
+      </p>
+
+      <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div
+          *ngFor="let p of pillars"
+          class="rounded-4 border p-4"
+          [ngClass]="p.tint">
+          <div class="flex items-start gap-3">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/70 border border-black/5 grid place-items-center shrink-0">
+              <i class="{{ p.icon }} text-lg" [ngClass]="p.iconColor"></i>
+            </div>
+
+            <div>
+              <div class="font-extrabold text-slate-900">{{ p.title }}</div>
+              <div class="mt-1 text-slate-700 font-semibold">{{ p.head }}</div>
+
+              <ul class="mt-2 m-0 p-0 list-none grid gap-2">
+                <li *ngFor="let it of p.items" class="flex items-start gap-2 text-slate-700">
+                  <i class="pi pi-check text-emerald-600 mt-1"></i>
+                  <span class="font-semibold">{{ it }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) SPECIFIERS -->
+  <section class="mt-4 rounded-4 border border-black/5 bg-white shadow-sm overflow-hidden">
+    <div class="p-4 md:p-5">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <h2 class="m-0 font-extrabold text-slate-900 text-xl">رابعًا: توصيفات إضافية مهمّة</h2>
+        <span class="text-slate-500 font-semibold text-sm">Specifiers</span>
+      </div>
+
+      <p class="mt-2 text-slate-600 leading-relaxed">
+        الطبيب يضيف توصيفات تساعد في فهم الحالة وتحديد الخطة الأنسب.
+      </p>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span
+          *ngFor="let s of specifiers"
+          class="px-3 py-1.5 rounded-full text-sm font-extrabold
+                 bg-slate-900/5 text-slate-800 border border-black/5">
+          {{ s }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-6"></div>
+</section>

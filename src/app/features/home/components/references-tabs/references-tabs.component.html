@@ -1,0 +1,89 @@
+<section class="max-w-[1000px] mx-auto px-4 rtl">
+  <!-- Header -->
+  <header class="mb-6">
+    <h2 class="text-3xl font-extrabold   ">
+      المراجع والكتب العلمية
+    </h2>
+    <p class="mt-2 text-slate-600 font-semibold">
+      الوقاية قبل الزواج والحمل – الخِلقة السليمة
+    </p>
+  </header>
+
+  <p-tabs [(value)]="active">
+    <!-- Tabs -->
+    <p-tablist class="flex gap-2 mb-4">
+      <p-tab value="0">مراجع عربية</p-tab>
+      <p-tab value="1">مراجع أجنبية</p-tab>
+      <p-tab value="2">زواج الأقارب</p-tab>
+    </p-tablist>
+
+    <p-tabpanels>
+      <!-- Arabic -->
+      <p-tabpanel value="0">
+        <div class="divide-y divide-slate-200 ">
+          <div *ngFor="let r of arabic" class="p-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold    text-lg">
+                  {{ r.title }}
+                </h3>
+                <div *ngIf="r.author" class="text-sm text-slate-600 font-semibold">
+                  {{ r.author }}
+                </div>
+                <div *ngIf="r.org" class="text-sm text-slate-500">
+                  {{ r.org }}
+                </div>
+              </div>
+            </div>
+
+            <ul class="mt-3 space-y-1 text-slate-700">
+              <li *ngFor="let d of r.desc" class="flex gap-2">
+                <span class="text-emerald-600">•</span>
+                <span>{{ d }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </p-tabpanel>
+
+      <!-- Foreign -->
+      <p-tabpanel value="1">
+        <div class="divide-y divide-slate-200 ">
+          <div *ngFor="let r of foreign" class="p-4">
+            <h3 class="font-bold    text-lg">
+              {{ r.title }}
+            </h3>
+
+            <ul class="mt-3 space-y-1 text-slate-700">
+              <li *ngFor="let d of r.desc" class="flex gap-2">
+                <span class="text-sky-600">•</span>
+                <span>{{ d }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </p-tabpanel>
+
+      <!-- Consanguinity -->
+      <p-tabpanel value="2">
+        <div class="divide-y divide-slate-200 rounded-xl ">
+          <div *ngFor="let r of consanguinity" class="p-4">
+            <h3 class="font-bold    text-lg">
+              {{ r.title }}
+            </h3>
+            <div *ngIf="r.author" class="text-sm text-slate-600 font-semibold">
+              {{ r.author }}
+            </div>
+
+            <ul class="mt-3 space-y-1 text-slate-700">
+              <li *ngFor="let d of r.desc" class="flex gap-2">
+                <span class="text-rose-600">•</span>
+                <span>{{ d }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
+</section>

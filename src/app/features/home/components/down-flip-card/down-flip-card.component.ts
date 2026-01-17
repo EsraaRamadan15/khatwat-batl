@@ -7,9 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./down-flip-card.component.scss'],
 })
 export class DownFlipCardComponent {
-  @Input() title = 'أطفال متلازمة داون';
+  @Input() title = 'أطفال الاختلاف النمائي';
+  @Input() subtitle = 'داون • توحد • اختلاف نمائي';
+
   @Input() desc =
-    'أطفال متلازمة داون لديهم قدرات جميلة قابلة للنمو. مع الحب والتقبّل والمتابعة المبكرة، نساعدهم في تنمية التواصل والمهارات الحركية والاستقلالية خطوة بخطوة.';
+    'هذا الموقع يقدّم محتوى داعم ومبسّط لأهالي أطفال متلازمة داون وطيف التوحد. نؤمن أن كل طفل لديه قدرات قابلة للنمو، ومع الفهم الصحيح والاحتواء والتدخل المبكر، نساعدهم على تنمية التواصل والمهارات اليومية والاستقلالية خطوة بخطوة.';
   @Input() img = 'assets/images/down-kids.webp';
 
   // ✅ unique id so multiple cards won't conflict

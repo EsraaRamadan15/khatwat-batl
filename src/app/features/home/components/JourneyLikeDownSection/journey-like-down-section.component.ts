@@ -30,7 +30,7 @@ export class JourneyLikeDownSectionComponent {
     {
       title: 'مصادر وبحث',
       desc: 'اعرفي متلازمة داون ببساطة: الفحوصات، النمو، المهارات، والمتابعة المبكرة.',
-      link: '/down-research',
+      link: '/refrences',
       variant: 'blue',
     },
     {
