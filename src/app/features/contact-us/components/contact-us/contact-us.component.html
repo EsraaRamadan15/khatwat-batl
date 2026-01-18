@@ -1,0 +1,227 @@
+<section dir="rtl" class="w-full">
+  <div class="mx-auto max-w-5xl p-4 sm:p-6">
+    <!-- Outer glow/gradient frame -->
+    <div class="rounded-3xl bg-gradient-to-br from-emerald-200/60 via-sky-200/40 to-orange-200/40 p-[1px] shadow-lg">
+      <div class="rounded-3xl border border-white/70 bg-white/70 backdrop-blur-xl">
+        <!-- Header -->
+        <div class="p-5 sm:p-6 border-b border-black/5">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-black/5">
+            <span class="text-emerald-700">إيماني دافئ</span>
+            <span class="text-slate-400">•</span>
+            <span>نرد عليك بسرعة</span>
+          </div>
+
+          <h2 class="mt-3 text-xl sm:text-2xl font-extrabold text-slate-900">
+            تواصل معنا
+          </h2>
+
+          <p class="mt-2 text-sm text-slate-600">
+            اكتب رسالتك، واحنا هنرد عليك بإذن الله بأسرع وقت.
+          </p>
+        </div>
+
+        <!-- Form body -->
+        <form class="p-5 sm:p-6 space-y-6" [formGroup]="form" (ngSubmit)="submit()">
+          <!-- Type chips -->
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-2">نوع الرسالة</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <!-- inquiry -->
+              <button type="button"
+                (click)="form.controls.type.setValue('inquiry')"
+                class="group rounded-2xl border px-3 py-3 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                [class.border-emerald-300]="form.controls.type.value==='inquiry'"
+                [class.bg-emerald-600]="form.controls.type.value==='inquiry'"
+                [class.text-white]="form.controls.type.value==='inquiry'"
+                [class.bg-white/80]="form.controls.type.value!=='inquiry'"
+                [class.text-slate-800]="form.controls.type.value!=='inquiry'">
+                <div class="flex items-center justify-between">
+                  <span>رسالة استفسار</span>
+                  <span
+                    class="text-xs rounded-full px-2 py-0.5"
+                    [class.bg-white/20]="form.controls.type.value==='inquiry'"
+                    [class.text-white]="form.controls.type.value==='inquiry'"
+                    [class.bg-emerald-50]="form.controls.type.value!=='inquiry'"
+                    [class.text-emerald-700]="form.controls.type.value!=='inquiry'">
+                    سريع
+                  </span>
+                </div>
+              </button>
+
+              <!-- consultation -->
+              <button type="button"
+                (click)="form.controls.type.setValue('consultation')"
+                class="group rounded-2xl border px-3 py-3 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-sky-300"
+                [class.border-sky-300]="form.controls.type.value==='consultation'"
+                [class.bg-sky-600]="form.controls.type.value==='consultation'"
+                [class.text-white]="form.controls.type.value==='consultation'"
+                [class.bg-white/80]="form.controls.type.value!=='consultation'"
+                [class.text-slate-800]="form.controls.type.value!=='consultation'">
+                <div class="flex items-center justify-between">
+                  <span>طلب استشارة</span>
+                  <span
+                    class="text-xs rounded-full px-2 py-0.5"
+                    [class.bg-white/20]="form.controls.type.value==='consultation'"
+                    [class.text-white]="form.controls.type.value==='consultation'"
+                    [class.bg-sky-50]="form.controls.type.value!=='consultation'"
+                    [class.text-sky-700]="form.controls.type.value!=='consultation'">
+                    مهم
+                  </span>
+                </div>
+              </button>
+
+              <!-- feedback -->
+              <button type="button"
+                (click)="form.controls.type.setValue('feedback')"
+                class="group rounded-2xl border px-3 py-3 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-orange-300"
+                [class.border-orange-300]="form.controls.type.value==='feedback'"
+                [class.bg-orange-600]="form.controls.type.value==='feedback'"
+                [class.text-white]="form.controls.type.value==='feedback'"
+                [class.bg-white/80]="form.controls.type.value!=='feedback'"
+                [class.text-slate-800]="form.controls.type.value!=='feedback'">
+                <div class="flex items-center justify-between">
+                  <span>اقتراحات وشكاوى</span>
+                  <span
+                    class="text-xs rounded-full px-2 py-0.5"
+                    [class.bg-white/20]="form.controls.type.value==='feedback'"
+                    [class.text-white]="form.controls.type.value==='feedback'"
+                    [class.bg-orange-50]="form.controls.type.value!=='feedback'"
+                    [class.text-orange-700]="form.controls.type.value!=='feedback'">
+                    نرد بسرعة
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            <div class="mt-2 text-xs text-slate-600">
+              الحالي:
+              <span class="font-bold text-slate-900">{{ typeLabel() }}</span>
+            </div>
+          </div>
+
+          <!-- Fields card -->
+          <div class="rounded-2xl border border-black/5 bg-gradient-to-br from-white/90 to-white/60 p-4 sm:p-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">الاسم *</label>
+                <input formControlName="name" type="text"
+                  class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none
+                         focus:ring-2 focus:ring-emerald-200 focus:border-emerald-300 transition"
+                  [class.border-red-400]="isInvalid('name')"
+                  placeholder="اكتب اسمك" />
+                <p *ngIf="isInvalid('name')" class="mt-1 text-xs text-red-600">{{ errText('name') }}</p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">البريد الإلكتروني *</label>
+                <input formControlName="email" type="email"
+                  class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none
+                         focus:ring-2 focus:ring-sky-200 focus:border-sky-300 transition"
+                  [class.border-red-400]="isInvalid('email')"
+                  placeholder="name@email.com" />
+                <p *ngIf="isInvalid('email')" class="mt-1 text-xs text-red-600">{{ errText('email') }}</p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">رقم الهاتف (اختياري)</label>
+                <input formControlName="phone" type="tel"
+                  class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none
+                         focus:ring-2 focus:ring-emerald-200 focus:border-emerald-300 transition"
+                  placeholder="مثال: 01xxxxxxxxx" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">طريقة التواصل المفضلة</label>
+                <select formControlName="preferredContact"
+                  class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none
+                         focus:ring-2 focus:ring-slate-200 transition">
+                  <option value="email">البريد الإلكتروني</option>
+                  <option value="phone">اتصال هاتفي</option>
+                  <option value="whatsapp">واتساب</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">عنوان الرسالة *</label>
+            <input formControlName="subject" type="text"
+              class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none
+                     focus:ring-2 focus:ring-orange-200 focus:border-orange-300 transition"
+              [class.border-red-400]="isInvalid('subject')"
+              placeholder="اكتب عنوان مختصر" />
+            <p *ngIf="isInvalid('subject')" class="mt-1 text-xs text-red-600">{{ errText('subject') }}</p>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">تفاصيل الرسالة *</label>
+            <textarea formControlName="message" rows="6"
+              class="w-full rounded-2xl border border-black/10 bg-white/90 px-3 py-3 text-sm outline-none resize-none
+                     focus:ring-2 focus:ring-emerald-200 focus:border-emerald-300 transition"
+              [class.border-red-400]="isInvalid('message')"
+              placeholder="اكتب التفاصيل هنا..."></textarea>
+
+            <div class="mt-1 flex items-center justify-between text-xs text-slate-600">
+              <span *ngIf="isInvalid('message')" class="text-red-600">{{ errText('message') }}</span>
+              <span class="rounded-full bg-slate-100 px-2 py-0.5">
+                {{ form.controls.message.value?.length || 0 }} حرف
+              </span>
+            </div>
+          </div>
+
+          <!-- Urgent + Consent -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label class="flex items-start gap-3 rounded-2xl border border-emerald-200/70 bg-emerald-50/60 p-4 cursor-pointer">
+              <input formControlName="urgent" type="checkbox" class="mt-1 h-4 w-4 rounded border-slate-300" />
+              <div>
+                <div class="text-sm font-extrabold text-slate-900">هذه الرسالة عاجلة</div>
+                <div class="text-xs text-slate-600">هنحاول نرد أسرع قدر الإمكان.</div>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 rounded-2xl border p-4 cursor-pointer"
+                   [class.border-red-400]="isInvalid('consent')"
+                   [class.bg-orange-50/50]="!isInvalid('consent')"
+                   [class.border-orange-200/70]="!isInvalid('consent')">
+              <input formControlName="consent" type="checkbox" class="mt-1 h-4 w-4 rounded border-slate-300" />
+              <div>
+                <div class="text-sm font-extrabold text-slate-900">أوافق على استخدام بياناتي للرد فقط *</div>
+                <div class="text-xs text-slate-600">لن نشارك بياناتك مع أي طرف آخر.</div>
+                <p *ngIf="isInvalid('consent')" class="mt-1 text-xs text-red-600">{{ errText('consent') }}</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Alerts -->
+          <div *ngIf="successMsg()" class="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
+            {{ successMsg() }}
+          </div>
+
+          <div *ngIf="errorMsg()" class="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+            {{ errorMsg() }}
+          </div>
+
+          <!-- Submit -->
+          <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <p class="text-xs text-slate-600">
+              بالضغط على إرسال، سيتم إرسال البيانات إلى فريق الدعم.
+            </p>
+
+            <button type="submit"
+              class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-extrabold text-white
+                     bg-gradient-to-l from-emerald-600 to-teal-600 shadow-md shadow-emerald-200/60
+                     hover:brightness-105 active:brightness-95 transition
+                     disabled:opacity-60 disabled:cursor-not-allowed"
+              [disabled]="sending()">
+              <span *ngIf="!sending()">إرسال</span>
+              <span *ngIf="sending()">جارٍ الإرسال...</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
