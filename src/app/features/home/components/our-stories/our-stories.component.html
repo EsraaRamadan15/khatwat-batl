@@ -1,0 +1,104 @@
+<section
+  dir="rtl"
+  class="relative overflow-hidden my-32 
+         bg-[#062B45] shadow-sm"
+>
+  <!-- Decorative dotted shapes (tailwind-only) -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 opacity-60"
+    style="
+      background:
+        radial-gradient(circle, rgba(56,189,248,.22) 0 2px, transparent 3px) 88% 14%/140px 140px,
+        radial-gradient(circle, rgba(250,204,21,.22) 0 2px, transparent 3px) 12% 78%/160px 160px;
+    "
+  ></div>
+
+  <div class="relative z-10 px-4 py-8 md:px-8 md:py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <!-- Left text column -->
+      <div class="lg:col-span-4">
+        <h2 class="text-amber-400 font-extrabold text-[clamp(26px,3vw,44px)] leading-tight">
+        قصصنا
+        </h2>
+
+        <p class="mt-3 text-white/80 leading-relaxed max-w-[360px]">
+          قصص قصيرة وملهمة… تفاصيل محدودة هنا، وداخل صفحة التفاصيل هتلاقي القصة كاملة.
+        </p>
+
+        <a
+          routerLink="/stories"
+          class="inline-flex items-center gap-2 mt-5 text-white/90 no-underline font-bold
+                 hover:text-white"
+        >
+          <span>عرض كل القصص</span>
+          <i class="pi pi-arrow-left"></i>
+        </a>
+      </div>
+
+      <!-- Cards (masonry-like layout using Tailwind) -->
+      <div class="lg:col-span-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <a
+            *ngFor="let s of limitedStories; trackBy: trackById; let i = index"
+            [routerLink]="['/story', s.id]"
+            class="group block no-underline"
+            [ngClass]="{
+              'sm:translate-y-4': i === 0,
+              'sm:-translate-y-2': i === 1,
+              'sm:translate-y-6': i === 2,
+              'sm:translate-y-1': i === 3
+            }"
+          >
+            <article
+              class="overflow-hidden rounded-4 border border-white/10 bg-white shadow-sm
+                     transition-transform duration-300 group-hover:-translate-y-1"
+            >
+              <!-- image -->
+              <div class="relative h-[180px] md:h-[210px] bg-slate-100">
+                <img
+                  [src]="s.imageUrl"
+                  [alt]="s.personName"
+                  class="w-full h-full object-cover"
+                />
+
+                <!-- small tag -->
+                <div
+                  *ngIf="s.tag"
+                  class="absolute top-3 right-3 px-3 py-1.5 rounded-full
+                         bg-white/85 border border-black/10
+                         text-slate-900 text-xs font-extrabold"
+                >
+                  {{ s.tag }}
+                </div>
+              </div>
+
+              <!-- quote -->
+              <div class="p-4 md:p-5">
+                <div class="text-amber-500 text-2xl leading-none font-black">“</div>
+
+                <p class="mt-2 text-slate-900 font-extrabold leading-relaxed">
+                  {{ s.quote }}
+                </p>
+
+                <div class="mt-4 flex items-center justify-between">
+                  <div class="text-slate-500 text-xs font-bold tracking-wide uppercase">
+                    {{ s.personName }}
+                  </div>
+
+                  <span
+                    class="w-9 h-9 rounded-full border border-slate-900/15
+                           grid place-items-center text-slate-700
+                           transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <i class="pi pi-arrow-left text-sm"></i>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
