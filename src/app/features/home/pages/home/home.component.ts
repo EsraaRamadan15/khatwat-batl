@@ -8,11 +8,12 @@ import { DownBandComponent } from '../../components/down-band/down-band.componen
 import { DownFlipCardComponent } from '../../components/down-flip-card/down-flip-card.component';
 import { JourneyLikeDownSectionComponent } from '../../components/JourneyLikeDownSection/journey-like-down-section.component';
 import { AutismBandComponent } from '../../components/autism-band/autism-band.component';
+import { OurStoriesComponent } from '../../components/our-stories/our-stories.component';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [CommonModule ,RouterLink, ButtonModule, FeatureColorCardComponent, RevealOnScrollDirective,DownBandComponent,DownFlipCardComponent,JourneyLikeDownSectionComponent,AutismBandComponent],
+  imports: [CommonModule ,RouterLink, ButtonModule, FeatureColorCardComponent, RevealOnScrollDirective,DownBandComponent,DownFlipCardComponent,JourneyLikeDownSectionComponent,AutismBandComponent,OurStoriesComponent],
   templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })

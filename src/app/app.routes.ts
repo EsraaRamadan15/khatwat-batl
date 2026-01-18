@@ -10,7 +10,7 @@ export const routes: Routes = [
      { path: 'seven-houses', loadChildren: () => import('./features/seven-houses-stepper/seven-houses.routes').then(m => m.SEVENHOUSES_ROUTES) },
 
       { path: 'cards', loadChildren: () => import('./features/helping-cards/helping-cards.routes').then(m => m.Helping_CARDS_ROUTES) },
-    //   { path: 'pregnancy', loadChildren: () => import('./features/pregnancy/pregnancy.routes').then(m => m.PREGNANCY_ROUTES) },
+      { path: 'stories', loadChildren: () => import('./features/stories/stories.routes').then(m => m.STORIES_ROUTES) },
 
     //   { path: 'down', loadChildren: () => import('./features/down/down.routes').then(m => m.DOWN_ROUTES) },
     //   { path: 'autism', loadChildren: () => import('./features/autism/autism.routes').then(m => m.AUTISM_ROUTES) },
