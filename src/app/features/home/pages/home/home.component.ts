@@ -31,7 +31,7 @@ export class HomeComponent {
       desc: 'استبيانات تقييم + اختبارات نقاط القوة + منظم يومي + تحميل PDFs',
       badge: 'أدوات',
       icon: 'pi pi-chart-line',
-      link: '/interactive-tools',
+      link: '/cards/interactive-tools',
       from: '#4F46E5',   // Indigo
       to: '#06B6D4',   // Cyan
       tint: 'rgba(79,70,229,.10)'

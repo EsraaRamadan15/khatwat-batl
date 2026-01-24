@@ -1,31 +1,40 @@
 <div class="min-h-screen bg-gradient-to-b from-[#FFF7EF] via-white to-[#F7FBFF]">
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
-    <div class="container py-3 d-flex align-items-center justify-content-between">
-      <a routerLink="/" class="text-xl font-extrabold text-[#B85C00] no-underline d-flex gap-2"> <span class="text-dark ">خطوات بطل</span> <img src="assets/images/logo.jpg" class="w-[32px] " alt="" srcset=""> </a>
+<header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
+  <div class="container py-2 d-flex align-items-center justify-content-between">
 
-      <nav class="d-none d-md-flex gap-3 text-sm">
-        <!-- <a routerLink="/start" routerLinkActive="font-bold" class="text-gray-700 no-underline">ابدئي من هنا</a>
-        <a routerLink="/pre-marriage" routerLinkActive="font-bold" class="text-gray-700 no-underline">قبل الزواج</a>
-        <a routerLink="/pregnancy" routerLinkActive="font-bold" class="text-gray-700 no-underline">خلال الحمل</a>
-        <a routerLink="/down" routerLinkActive="font-bold" class="text-gray-700 no-underline">متلازمة داون</a>
-        <a routerLink="/autism" routerLinkActive="font-bold" class="text-gray-700 no-underline">طيف التوحد</a>
-        <a routerLink="/program" routerLinkActive="font-bold" class="text-gray-700 no-underline">خطوات بطل</a>
-        <a routerLink="/tools" routerLinkActive="font-bold" class="text-gray-700 no-underline">الأدوات</a>
-        <a routerLink="/references" routerLinkActive="font-bold" class="text-gray-700 no-underline">المراجع</a> -->
-      </nav>
+    <a routerLink="/" class="no-underline d-flex align-items-center gap-2">
+      <img src="assets/images/logo.jpg" class="w-[26px] h-[26px] rounded" alt="" />
+      <span class="text-xl font-extrabold text-[#B85C00]">
+        <span class="text-dark">خطوات بطل</span>
+      </span>
+    </a>
 
-      <p-button label="ابدئي الرحلة" routerLink="/start"></p-button>
+    <nav class="d-none d-md-flex gap-3 text-sm"></nav>
+
+    <!-- Right side: slogan + button -->
+    <div class="d-flex align-items-center gap-3">
+      <span class="text-[12px] text-slate-600 d-none d-md-inline">
+        كل يوم… بداية أمل لخطوة جديدة
+      </span>
+
+      <p-button
+        label="الصفحة للرئيسية"
+        routerLink="/"
+        styleClass="p-button-sm">
+      </p-button>
     </div>
-  </header>
+
+  </div>
+</header>
+
 
 
   <main class=" py-4">
     <router-outlet></router-outlet>
   </main>
 
-  <footer class=" py-4 text-sm text-gray-600 bg-white/70 border-t border-black/5">
-    <p class="px-3">    © خطوات بطل</p>
-
+  <footer class="py-4 text-sm text-gray-600 bg-white/70 border-t border-black/5 text-center">
+    <p class="px-3">© خطوات بطل</p>
   </footer>
-</div>
 
+</div>
