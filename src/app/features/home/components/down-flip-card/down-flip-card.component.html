@@ -3,15 +3,15 @@
 
   <!-- LABEL = clickable card -->
   <label class="flip-card " [for]="uid">
-    <div class="flip-card__inner relative w-full min-h-[320px] rounded-[20px]
+    <div class="flip-card__inner relative w-full min-h-[420px] rounded-[20px]
              [transform-style:preserve-3d]
              transition-transform duration-700 ease-in-out
              peer-checked:[transform:rotateY(180deg)]">
 
       <!-- FRONT -->
       <div class="flip-card__face bg-[#fff]">
-        <img [src]="img" [alt]="title" class="w-full h-full object-cover block"  />
-        <div     class="absolute left-4 bottom-4
+        <img [src]="img" [alt]="title" class="w-full h-full object-cover block" />
+        <div class="absolute left-4 bottom-4
                  px-4 py-3 rounded-2xl
                  bg-white/80 border border-black/10
                  backdrop-blur-md">
@@ -30,17 +30,37 @@
             </div>
 
             <!-- close by clicking this label -->
-            <span     class="px-3 py-1.5 rounded-full text-[13px] font-semibold
+            <span class="px-3 py-1.5 rounded-full text-[13px] font-semibold
                      bg-white/20 border border-white/35">رجوع</span>
           </div>
 
           <p class="mb-3 text-white-50">{{ desc }}</p>
 
           <ul class="mb-0 text-white-50">
-            <li>قدراته تتحسن بالتدريب والتكرار والصبر.</li>
-            <li>اللغة والحركة بيتقدّموا بخطة بسيطة يومية.</li>
-            <li>الدمج والدعم العاطفي بيفرقوا جدًا.</li>
+            <li>
+              مشروع <strong>"خطوات بطل"</strong> هو مبادرة إنسانية تربوية توعوية تهدف إلى دعم أمهات وأسر الأطفال من ذوي
+              الهمم،
+              خاصة أطفال متلازمة داون، من خلال منهج متكامل يجمع بين العلم والرحمة والإيمان.
+            </li>
+            <li>
+              يقوم المشروع على مبدأ <strong>الإحسان</strong>؛ إتقان الرعاية، وإحسان العطاء، والتعامل مع الطفل وأسرته
+              بوعي
+              نفسي وإنساني وروحي، وليس فقط من الجانب الطبي أو التعليمي.
+            </li>
+            <li>
+              يرتكز المشروع على <strong>منازل الروح السبعة</strong>: التقوى، اليقين، التوكل، التسليم، الرضا، العبودية،
+              ومحبة الله،
+              ويتم تحويلها إلى خطوات عملية تساعد الأم على التقبّل، واستعادة قوتها، وبناء الأمل والعمل.
+            </li>
+            <li>
+              تأثير <strong>"خطوات بطل"</strong> يمتد لبناء أم واعية، وأسرة متماسكة، وتغيير نظرة المجتمع من الشفقة
+              إلى الفهم والاحتواء والتمكين.
+            </li>
+            <li> نحن لا نصنع رحلة علاج فقط، بل رحلة وعي وصبر وأمل وإحسان،
+              فـ <strong>"خطوات بطل"</strong> هو بناء للإنسان قبل المهارة، وبناء للروح قبل علاج الجسد.
+            </li>
           </ul>
+
         </div>
       </div>
 

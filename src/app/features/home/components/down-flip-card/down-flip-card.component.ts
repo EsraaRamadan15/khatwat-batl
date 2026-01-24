@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./down-flip-card.component.scss'],
 })
 export class DownFlipCardComponent {
-  @Input() title = 'أطفال الاختلاف النمائي';
+  @Input() title = 'مشروع خطوات بطل';
   @Input() subtitle = 'داون • توحد • اختلاف نمائي';
 
   @Input() desc =

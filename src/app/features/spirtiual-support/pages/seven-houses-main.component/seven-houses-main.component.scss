@@ -1,0 +1,75 @@
+:host{
+  display:block;
+  padding: 0 8px;
+}
+
+/* Wrapper لو عندك خلفية داكنة داخل component نفسه */
+.tabs-shell{
+  background: transparent; /* مهم */
+}
+
+/* PrimeNG Tabs */
+:host ::ng-deep .p-tabs{
+  background: transparent;
+}
+
+/* ✅ خلفية فاتحة متناسقة مع الويب */
+:host ::ng-deep .p-tablist{
+  display:flex;
+  width:100%;
+  gap: 10px;
+
+  /* lighter + compatible */
+  background:
+    radial-gradient(900px 260px at 85% -20%, rgba(16,185,129,.16), transparent 60%),
+    radial-gradient(700px 240px at 10% 20%, rgba(20,184,166,.12), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 10px 26px rgba(2,6,23,.08);
+}
+
+/* ✅ كل Tab نص الصفحة + نص مقروء */
+:host ::ng-deep .p-tablist .p-tab{
+  flex: 1 1 50%;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+
+  padding: 12px 10px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(17,24,39,.10);
+
+  color: rgba(17,24,39,.88); /* نص غامق واضح */
+  font-weight: 900;
+
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+
+:host ::ng-deep .p-tablist .p-tab:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(2,6,23,.10);
+  border-color: rgba(16,185,129,.22);
+}
+
+/* ✅ Active tab: أخضر خفيف بدون ما يضيع النص */
+:host ::ng-deep .p-tablist .p-tab.p-tab-active{
+  background: rgba(16,185,129,.16);
+  border-color: rgba(16,185,129,.30);
+  color: rgba(17,24,39,.92);
+}
+
+/* indicator نخفيه عشان ما يعمل شريط غريب */
+:host ::ng-deep .p-tablist .p-tab-indicator{
+  display:none;
+}
+
+/* Panels spacing */
+:host ::ng-deep .p-tabpanels{
+  margin-top: 12px;
+  background: transparent;
+}

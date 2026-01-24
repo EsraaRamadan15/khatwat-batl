@@ -1,0 +1,90 @@
+<section class="intro-shell" dir="rtl">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">🌿 منازل الروح السبعة</div>
+
+    <h2 class="hero-title">
+      ما هي منازل الروح السبعة؟ وما مدى فاعليتها للحفاظ على الصحة النفسية لأمهات أبطالنا؟
+    </h2>
+
+    <p class="hero-desc">
+      مشروع <strong>“خطوات بطل”</strong> في جوهره مش بس تأهيل طفل… ده رحلة إيمانية ونفسية للأم والأسرة كلها 🌱
+      <br />
+      منازل الروح السبعة هي خريطة عبور: من الصدمة إلى الطمأنينة، ومن الخوف إلى المعنى، ومن التعب إلى الأجر.
+    </p>
+
+    <div class="benefits">
+      <div class="benefit" *ngFor="let b of quickBenefits">
+        <div class="b-ico">{{ b.icon }}</div>
+        <div class="b-txt">
+          <div class="b-title">{{ b.title }}</div>
+          <div class="b-desc">{{ b.desc }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge">
+      <div class="bridge-title">🧭 العلاقة بمشروع “خطوات بطل”</div>
+      <p class="bridge-desc">
+        المشروع لا يبدأ بالطفل فقط… بل يبدأ بـ <strong>قلب الأم</strong>.
+        لأن قلب مطمئن = تربية أهدأ، وأم ثابتة = طفل أكثر أمانًا، ونية صادقة = بركة في الجهد.
+      </p>
+    </div>
+
+    <!-- mini timeline -->
+    <div class="mini-timeline" aria-label="ملخص المنازل السبعة">
+      <div class="mini-item" *ngFor="let h of homes">
+        <span class="mini-n">{{ h.n }}</span>
+        <span class="mini-title">{{ h.title }}</span>
+      </div>
+    </div>
+
+    <div class="cta-hint">والآن نبدأ الرحلة… منزلة بمنزلة 🤍</div>
+  </div>
+
+  <!-- Cards / Accordion -->
+  <div class="cards">
+    <div class="card" *ngFor="let h of homes" [class.open]="isOpen(h.n)">
+      <button class="card-head" type="button" (click)="toggle(h.n)">
+        <div class="left">
+          <span class="num">{{ h.n }}</span>
+          <span class="icon">{{ h.icon }}</span>
+          <span class="title">منزلة {{ h.title }}</span>
+        </div>
+
+        <span class="chev" aria-hidden="true">⌄</span>
+      </button>
+
+      <div class="card-body" *ngIf="isOpen(h.n)">
+        <div class="row">
+          <div class="block">
+            <div class="block-title">التعريف</div>
+            <p class="block-text">{{ h.def }}</p>
+          </div>
+
+          <div class="block">
+            <div class="block-title">ليه مهم نفسيًا؟</div>
+            <ul class="block-list">
+              <li *ngFor="let x of h.why">{{ x }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block accent">
+          <div class="block-title">🧩 في مشروع “خطوات بطل”</div>
+          <ul class="block-list">
+            <li *ngFor="let x of h.inProject">{{ x }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary footer -->
+  <div class="summary">
+    <div class="summary-title">🏗️ الخلاصة التربوية للمشروع</div>
+    <p class="summary-text">
+      مشروع “خطوات بطل” مش تأهيل طفل فقط… ده <strong>بناء أم قوية، ثابتة، قريبة من الله، ومتصالحة مع قدرها</strong>.
+    </p>
+  </div>
+</section>
