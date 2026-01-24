@@ -22,9 +22,9 @@ export class JourneyLikeDownSectionComponent {
 
   cards: JourneyCard[] = [
     {
-      title: 'الدعم',
-      desc: 'خدمات وأدوات تساعد الأسرة في المتابعة اليومية، التعليم، والصحة.',
-      link: '/down-support',
+      title: 'تواصل معنا',
+      desc: 'إرسال استفسار + طلب استشارة + اقتراحات وشكاوى (نرد عليك بسرعة)',
+      link: '/contact-us',
       variant: 'yellow',
     },
     {
@@ -34,7 +34,7 @@ export class JourneyLikeDownSectionComponent {
       variant: 'blue',
     },
     {
-      title: 'الربط الروحي',
+      title: 'شارك قصتك',
       desc: 'ربط الرحلة بمنازل الروح السبعة: قبول، صبر، يقين، رضا… خطوة بخطوة.',
       link: '/seven-houses',
       variant: 'rose',

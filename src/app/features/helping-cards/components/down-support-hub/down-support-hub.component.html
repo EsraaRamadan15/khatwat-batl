@@ -1,0 +1,188 @@
+<section dir="rtl" class="mx-auto max-w-[1100px] px-3 md:px-6 py-6">
+  <!-- Search -->
+  <div class="mb-4 rounded-3xl bg-white border border-black/5 shadow-sm p-4 md:p-5">
+    <div class="flex flex-col md:flex-row md:items-center gap-3">
+      <div class="flex-1">
+        <div class="font-extrabold text-slate-900 mb-1">بحث داخل المحتوى</div>
+        <div class="text-slate-700/80 font-semibold text-sm">اكتبي كلمة (مثل: سلياك، لبنان، NIPT، غدة...)</div>
+      </div>
+
+      <div class="relative w-full md:w-[360px]">
+        <i class="pi pi-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+        <input
+          [(ngModel)]="q"
+          placeholder="ابحثي هنا..."
+          class="w-full rounded-2xl border border-black/10 bg-slate-50 px-12 py-3 font-bold text-slate-900 outline-none focus:ring-2 focus:ring-sky-200"
+        />
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let sec of filteredSections">
+    <!-- HERO -->
+    <header
+      *ngIf="sec.kind === 'hero'"
+      class="rounded-3xl border border-black/5 shadow-sm overflow-hidden bg-white"
+    >
+      <div class="p-5 md:p-8 bg-gradient-to-br from-emerald-500/10 via-white to-sky-500/10">
+        <h1 class="text-[28px] md:text-[44px] font-extrabold text-slate-900 leading-tight m-0">
+          {{ sec.title }}
+        </h1>
+        <p *ngIf="sec.subtitle" class="mt-2 text-slate-800/80 leading-8 font-semibold">
+          {{ sec.subtitle }}
+        </p>
+
+        <div *ngIf="sec.badges?.length" class="mt-4 flex flex-wrap gap-2">
+          <span
+            *ngFor="let b of sec.badges"
+            class="inline-flex items-center gap-2 rounded-full px-3 py-1.5
+                   bg-white/85 border border-black/10 text-slate-800 font-extrabold text-[13px]"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-500/60"></span>
+            {{ b }}
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- NOTE -->
+    <article
+      *ngIf="sec.kind === 'note'"
+      class="mt-4 rounded-3xl border border-black/5 shadow-sm overflow-hidden bg-white"
+    >
+      <div
+        class="p-5 md:p-6"
+        [ngClass]="{
+          'bg-sky-500/10 border-sky-500/15': sec.emphasis === 'info',
+          'bg-rose-500/10 border-rose-500/15': sec.emphasis === 'warn',
+          'bg-emerald-500/10 border-emerald-500/15': sec.emphasis === 'good'
+        }"
+      >
+        <div class="flex items-center gap-2">
+          <i class="pi pi-info-circle text-slate-900"></i>
+          <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">{{ sec.title }}</h2>
+        </div>
+        <p class="mt-3 mb-0 text-slate-900/90 font-extrabold leading-8">
+          {{ sec.desc }}
+        </p>
+      </div>
+    </article>
+
+    <!-- CARDS -->
+    <section *ngIf="sec.kind === 'cards'" class="mt-4 rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div>
+          <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">{{ sec.title }}</h2>
+          <p *ngIf="sec.desc" class="mt-2 mb-0 text-slate-800/80 leading-8 font-semibold">
+            {{ sec.desc }}
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+        <article
+          *ngFor="let c of sec.items"
+          class="rounded-3xl border border-black/5 bg-slate-900/[0.02] p-4 md:p-5"
+        >
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+              <i class="{{ c.icon || 'pi pi-book' }} text-emerald-700"></i>
+            </div>
+            <div class="w-full">
+              <div class="flex items-center justify-between gap-2">
+                <div class="text-[16px] md:text-[18px] font-extrabold text-slate-900">
+                  {{ c.title }}
+                </div>
+
+                <span
+                  *ngIf="c.tag"
+                  class="rounded-full px-3 py-1 text-[12px] font-extrabold bg-emerald-500/10 border border-emerald-500/15 text-slate-900"
+                >
+                  {{ c.tag }}
+                </span>
+              </div>
+
+              <p *ngIf="c.desc" class="mt-2 text-slate-800/80 font-semibold leading-7">
+                {{ c.desc }}
+              </p>
+
+              <ul *ngIf="c.points?.length" class="mt-3 space-y-2 text-slate-800/85 font-semibold leading-7">
+                <li *ngFor="let p of c.points" class="flex gap-2">
+                  <span class="mt-2 w-2 h-2 rounded-full bg-sky-500/60 shrink-0"></span>
+                  <span>{{ p }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PLACES -->
+    <section *ngIf="sec.kind === 'places'" class="mt-4 rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+      <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">{{ sec.title }}</h2>
+      <p *ngIf="sec.desc" class="mt-2 mb-0 text-slate-800/80 leading-8 font-semibold">{{ sec.desc }}</p>
+
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+        <article *ngFor="let p of sec.items" class="rounded-3xl border border-black/5 bg-slate-900/[0.02] p-4 md:p-5">
+          <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">{{ p.name }}</div>
+
+          <div class="mt-2 space-y-1 text-slate-800/80 font-semibold leading-7">
+            <div *ngIf="p.city" class="flex gap-2">
+              <i class="pi pi-map-marker text-emerald-700 mt-1"></i>
+              <span>{{ p.city }}</span>
+            </div>
+            <div *ngIf="p.address" class="flex gap-2">
+              <i class="pi pi-home text-emerald-700 mt-1"></i>
+              <span>{{ p.address }}</span>
+            </div>
+            <div *ngIf="p.phone" class="flex gap-2">
+              <i class="pi pi-phone text-emerald-700 mt-1"></i>
+              <span>{{ p.phone }}</span>
+            </div>
+            <div *ngIf="p.email" class="flex gap-2">
+              <i class="pi pi-envelope text-emerald-700 mt-1"></i>
+              <span>{{ p.email }}</span>
+            </div>
+            <div *ngIf="p.website" class="flex gap-2">
+              <i class="pi pi-link text-emerald-700 mt-1"></i>
+              <button class="underline font-extrabold" (click)="open(p.website!)">فتح الموقع</button>
+            </div>
+          </div>
+
+          <ul *ngIf="p.notes?.length" class="mt-3 space-y-2 text-slate-800/85 font-semibold leading-7">
+            <li *ngFor="let n of p.notes" class="flex gap-2">
+              <span class="mt-2 w-2 h-2 rounded-full bg-amber-500/60 shrink-0"></span>
+              <span>{{ n }}</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section *ngIf="sec.kind === 'links'" class="mt-4 rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+      <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">{{ sec.title }}</h2>
+      <p *ngIf="sec.desc" class="mt-2 mb-0 text-slate-800/80 leading-8 font-semibold">{{ sec.desc }}</p>
+
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+        <button
+          *ngFor="let l of sec.items"
+          class="text-right rounded-3xl border border-black/5 bg-slate-900/[0.02] p-4 md:p-5 hover:-translate-y-0.5 transition-all"
+          (click)="open(l.url)"
+        >
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+              <i class="pi pi-external-link text-sky-700"></i>
+            </div>
+            <div class="w-full">
+              <div class="font-extrabold text-slate-900">{{ l.title }}</div>
+              <div class="mt-1 text-slate-800/70 font-semibold break-all">{{ l.url }}</div>
+              <div *ngIf="l.note" class="mt-2 text-slate-800/80 font-semibold">{{ l.note }}</div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </section>
+  </ng-container>
+</section>

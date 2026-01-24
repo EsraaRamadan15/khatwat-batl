@@ -1,17 +1,15 @@
-<section class="relative mt-4 overflow-hidden bg-[#FFF6EA]  shadow-sm
+<section class="relative mt-4 overflow-hidden  
          rtl px-7 pt-9 pb-0 lg:px-14 lg:pt-11"
   dir="rtl">
-  <!-- dotted background -->
-  <div class="journeyLike__dots" aria-hidden="true"></div>
 
   <!-- top heading -->
  <div class="relative z-10 px-1 pt-1 pb-7">
     <h2 class="m-0 font-extrabold text-[40px] tracking-[.2px] text-slate-900">
       {{ heading }}
     </h2>
-    <div class="mt-1.5 font-extrabold text-[12px] tracking-[1.2px] uppercase text-slate-900/70">
+    <!-- <div class="mt-1.5 font-extrabold text-[12px] tracking-[1.2px] uppercase text-slate-900/70">
       {{ sub }}
-    </div>
+    </div> -->
   </div>
 
 
@@ -29,11 +27,17 @@
              transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(0,0,0,.14)]
              px-10 py-11 pb-16 min-h-[260px] lg:min-h-[300px]
              relative"
-      [ngClass]="{
-        'bg-[#F3D9A6] lg:[transform:translateY(26px)] lg:rounded-tr-[88px]': c.variant === 'yellow',
-        'bg-[#B8DCE6] lg:z-10 lg:[transform:translateY(-10px)] lg:mx-[-42px] lg:rounded-[88px]': c.variant === 'blue',
-        'bg-[#E8C7D9] lg:[transform:translateY(26px)] lg:rounded-tl-[88px]': c.variant === 'rose'
-      }"
+ [ngClass]="{
+  'bg-[#DFF3EA] lg:[transform:translateY(26px)] lg:rounded-tr-[88px]':
+    c.variant === 'yellow',
+
+  'bg-[#E6F1FA] lg:z-10 lg:[transform:translateY(-10px)] lg:mx-[-42px] lg:rounded-[88px]':
+    c.variant === 'blue',
+
+  'bg-[#E0F4F6] lg:[transform:translateY(26px)] lg:rounded-tl-[88px]':
+    c.variant === 'rose'
+}"
+
     >
       <h3 class="m-0 mb-4 font-extrabold text-[44px] leading-[1.02] text-slate-900">
         {{ c.title }}
@@ -57,8 +61,8 @@
 
 
   <!-- bottom navy band -->
-  <div
+  <!-- <div
     aria-hidden="true"
     class="h-[140px] bg-[#5F8FA3] -mx-7 lg:-mx-14"
-  ></div>
+  ></div> -->
 </section>
