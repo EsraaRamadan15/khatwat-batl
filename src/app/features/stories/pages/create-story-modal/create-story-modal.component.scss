@@ -1,0 +1,18 @@
+::ng-deep {
+    .p-dialog{
+        background-color: white !important;
+    }
+    .p-inputtext , .p-textarea , .p-select {
+        background-color: white !important;
+        border:  1px solid #eee !important;
+        color: #877e7e  !important;
+
+    }
+.p-select-overlay{
+        background-color: white !important;
+        color: black !important;
+    }
+    .p-select-label , .p-select-option{
+        color: #877e7e  !important;
+    }
+}

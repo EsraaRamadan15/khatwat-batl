@@ -10,5 +10,5 @@ export const STORIES_ROUTES: Routes = [
       ),
   },
   // optional "all stories" page later:
-  // { path: 'stories', loadComponent: () => import(...).then(m => m.StoriesListPageComponent) }
+  { path: '', loadComponent: () => import('./pages/stories-list/stories-list.component').then(m => m.StoriesListComponent) }
 ];
