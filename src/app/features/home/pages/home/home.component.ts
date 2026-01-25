@@ -52,4 +52,104 @@ export class HomeComponent {
 
 
   ];
+
+
+
+
+
+
+  /////////////////////////////
+//   cards = [
+//   {
+//     title: 'قبل الزواج',
+//     desc: 'وعي + فحوصات + تغذية + وقاية',
+//     badge: 'وقاية',
+//     icon: 'pi pi-heart',
+//     link: '/cards/pre-marriage',
+//     from: '#14B8A6',
+//     to: '#22C55E',
+//     tint: 'rgba(20,184,166,.10)',
+//   },
+//   {
+//     title: 'خلال الحمل',
+//     desc: 'وقاية طبية وغذائية ونفسية',
+//     badge: 'متابعة',
+//     icon: 'pi pi-shield',
+//     link: '/cards/pregnancy',
+//     from: '#06B6D4',
+//     to: '#3B82F6',
+//     tint: 'rgba(6,182,212,.10)',
+//   },
+//   {
+//     title: 'قسم الدعم النفسي للأم',
+//     desc: 'مساندة الأم نفسيًا في رحلة القبول، الصبر، الأمل، والاستمرار',
+//     badge: 'فضفضة أم',
+//     icon: 'pi pi-users',
+//     link: '/cards/psych-support',
+//     from: '#0EA5E9',
+//     to: '#14B8A6',
+//     tint: 'rgba(14,165,233,.10)',
+//   },
+//   {
+//     title: 'قسم الدعم الروحي للأم',
+//     desc: 'الدعم الروحي للأم باستخدام منازل الروح السبعة',
+//     badge: 'طمأنينة',
+//     icon: 'pi pi-moon',
+//     link: '/seven-houses',
+//     from: '#22C55E',
+//     to: '#14B8A6',
+//     tint: 'rgba(34,197,94,.10)',
+//   },
+//   {
+//     title: 'قسم التثقيف الصحي',
+//     desc: 'رفع وعي الأم صحيًا بحالة طفلها',
+//     badge: 'وعي',
+//     icon: 'pi pi-compass',
+//     link: '/cards/hub-suppor',
+//     from: '#14B8A6',
+//     to: '#06B6D4',
+//     tint: 'rgba(20,184,166,.10)',
+//   },
+//   {
+//     title: 'قسم التثقيف الغذائي',
+//     desc: 'مساعدة الأم على بناء نظام غذائي داعم لصحة الطفل',
+//     badge: 'تثقيف',
+//     icon: 'pi pi-sparkles',
+//     link: '/cards/nutrition-support',
+//     from: '#22C55E',
+//     to: '#14B8A6',
+//     tint: 'rgba(34,197,94,.10)',
+//   },
+//   {
+//     title: 'قسم التعليم واكتشاف نقاط القوة',
+//     desc: 'تمكين الأم من تعليم طفلها واكتشاف مواهبه',
+//     badge: 'قياس',
+//     icon: 'pi pi-sliders-h',
+//     link: '/cards/education-support',
+//     from: '#06B6D4',
+//     to: '#14B8A6',
+//     tint: 'rgba(6,182,212,.10)',
+//   },
+//   {
+//     title: 'أدوات تفاعلية بالموقع',
+//     desc: 'استبيانات تقييم + اختبارات نقاط القوة + منظم يومي',
+//     badge: 'أدوات',
+//     icon: 'pi pi-chart-line',
+//     link: '/cards/interactive-tools',
+//     from: '#3B82F6',
+//     to: '#06B6D4',
+//     tint: 'rgba(59,130,246,.10)',
+//   },
+//   {
+//     title: 'قسم المجتمع',
+//     desc: 'مساحة آمنة للأمهات: مشاركة التجارب ودعم جماعي',
+//     badge: 'مجتمع',
+//     icon: 'pi pi-comments',
+//     link: '/',
+//     from: '#14B8A6',
+//     to: '#3B82F6',
+//     tint: 'rgba(20,184,166,.10)',
+//   },
+// ];
+
 }
