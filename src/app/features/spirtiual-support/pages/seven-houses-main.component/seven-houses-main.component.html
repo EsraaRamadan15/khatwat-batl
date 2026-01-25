@@ -1,19 +1,52 @@
 <section class="tabs-shell" dir="rtl">
-    <p-tabs value="intro">
-        <p-tablist>
-            <p-tab value="intro">🌿 التعريف والفكرة</p-tab>
-            <p-tab value="steps">🧭 التطبيق العملي (المراحل)</p-tab>
-        </p-tablist>
+  <p-tabs value="intro">
+    <p-tablist>
+      <p-tab value="intro">🌿 التعريف والفكرة</p-tab>
+      <p-tab value="steps">🧭 التطبيق العملي (المراحل)</p-tab>
+      <p-tab value="ihsan">🎓 أكاديمية الإحسان (روابط)</p-tab>
+    </p-tablist>
 
-        <p-tabpanels>
-            <p-tabpanel value="intro">
-                <app-seven-houses-intro></app-seven-houses-intro>
-            </p-tabpanel>
+    <p-tabpanels>
+      <p-tabpanel value="intro">
+        <app-seven-houses-intro></app-seven-houses-intro>
+      </p-tabpanel>
 
-            <p-tabpanel value="steps">
-                <app-seven-houses-stepper></app-seven-houses-stepper>
+      <p-tabpanel value="steps">
+        <app-seven-houses-stepper></app-seven-houses-stepper>
+      </p-tabpanel>
 
-            </p-tabpanel>
-        </p-tabpanels>
-    </p-tabs>
+      <p-tabpanel value="ihsan">
+        <div class="ihsan-links">
+          <div class="ihsan-head">
+            <div class="ihsan-badge">
+              <i class="pi pi-sparkles"></i>
+              <span>بوابة أكاديمية الإحسان</span>
+            </div>
+
+            <h3 class="ihsan-title">محتوى تربوي وروحي يساعدك تكمّلي الرحلة بوعي 🌱</h3>
+
+            <p class="ihsan-desc">
+              لو حابة تتعمّقي أكتر: محاضرات، برامج، ومسارات تساعد في بناء الوعي، تهذيب النفس،
+              وتقوية المعنى خلال رحلة “منازل الروح السبعة”.
+              هنا بنحط لك الرابط الرسمي عشان توصلي بسرعة وبوضوح.
+            </p>
+
+            <div class="ihsan-actions">
+              <a
+                class="ihsan-btn"
+                href="https://academy.ihsanlife.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                زيارة أكاديمية الإحسان
+                <i class="pi pi-external-link"></i>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
 </section>

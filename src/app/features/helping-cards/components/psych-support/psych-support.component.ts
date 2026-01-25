@@ -108,29 +108,47 @@ export class PsychSupportComponent {
   ];
 
   // ===== Sites
-  sites: LinkItem[] = [
-    {
-      title: 'WHO – World Health Organization',
-      desc: 'معلومات صحية عامة موثوقة',
-      url: 'https://www.who.int/',
-      badge: 'موثوق',
-      icon: 'pi pi-globe',
-    },
-    {
-      title: 'CDC – Child Development',
-      desc: 'معلومات عن التطور والنمو والدعم',
-      url: 'https://www.cdc.gov/ncbddd/childdevelopment/index.html',
-      badge: 'موثوق',
-      icon: 'pi pi-verified',
-    },
-    {
-      title: 'Autism Speaks – Resources',
-      desc: 'مصادر وإرشادات للعائلات (بالإنجليزية)',
-      url: 'https://www.autismspeaks.org/',
-      badge: 'موارد',
-      icon: 'pi pi-book',
-    },
-  ];
+// ===== Sites
+sites: LinkItem[] = [
+  {
+    title: 'WHO – World Health Organization',
+    desc: 'معلومات صحية عامة موثوقة',
+    url: 'https://www.who.int/',
+    badge: 'موثوق',
+    icon: 'pi pi-globe',
+  },
+  {
+    title: 'CDC – Child Development',
+    desc: 'معلومات عن التطور والنمو والدعم',
+    url: 'https://www.cdc.gov/ncbddd/childdevelopment/index.html',
+    badge: 'موثوق',
+    icon: 'pi pi-verified',
+  },
+  {
+    title: 'Autism Speaks – Resources',
+    desc: 'مصادر وإرشادات للعائلات (بالإنجليزية)',
+    url: 'https://www.autismspeaks.org/',
+    badge: 'موارد',
+    icon: 'pi pi-book',
+  },
+
+  // ✅ New Source
+  {
+    title: 'Global Down Syndrome Foundation',
+    desc: 'مصادر عالمية موثوقة للتوعية بمتلازمة داون والدعم العلمي والأسري',
+    url: 'https://share.google/pzFNmifcxnREIj3s1',
+    badge: 'مصدر عالمي',
+    icon: 'pi pi-heart',
+  },
+  {
+    title: 'EDS Egypt – World Down Syndrome Day',
+    desc: 'مبادرات وأنشطة توعوية من المؤسسة المصرية لمتلازمة داون',
+    url: 'https://www.facebook.com/share/1NKK2vKsXe/',
+    badge: 'مجتمع',
+    icon: 'pi pi-users',
+  },
+];
+
 
   // ===== helpers
   get filteredFaqs(): FaqItem[] {
