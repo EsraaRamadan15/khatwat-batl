@@ -11,96 +11,158 @@
                 background: radial-gradient(circle at 30% 30%, rgba(14,184,166,.32), transparent 60%);">
     </div>
 
- <div class="position-relative">
+    <div class="position-relative">
 
-  <!-- Badge -->
-  <div
-    class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill
-           bg-white/80 border border-black/5 shadow-sm">
-    <i class="pi pi-sparkles" style="color:#A855F7"></i>
-    <span class="fw-bold" style="color:#B85C00">وعي مطمئن</span>
-    <span class="text-gray-600">
-      محتوى علمي • دعم نفسي • طمأنينة إيمانية
-    </span>
-  </div>
+      <!-- Badge (UX: blur + subtle motion) -->
+      <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm" style="
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(0,0,0,.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .2s ease, box-shadow .2s ease;
+    " onmouseenter="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 10px 22px rgba(2,6,23,.10)'"
+        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 .125rem .25rem rgba(0,0,0,.075)'">
+        <i class="pi pi-sparkles" style="color:#A855F7"></i>
+        <span class="fw-bold" style="color:#B85C00">وعي يطمن قلبك</span>
+        <span class="text-secondary">
+          علم • دعم • سكينة
+        </span>
+      </div>
 
-  <!-- Title -->
-  <h1 class="mt-3 text-3xl md:text-5xl fw-extrabold leading-tight">
-    خطوات بطل
-    <span class="d-block" style="color:#0EA5A6">
-      رحلة واعية لدعم الطفل والأسرة
-    </span>
-  </h1>
+      <!-- Title -->
+      <h1 class="mt-3 fw-extrabold lh-sm" style="font-size: clamp(28px, 4vw, 52px);">
+        خطوات بطل
+        <span class="d-block" style="color:#0EA5A6">
+          لأن كل رحلة تبدأ بوعي
+        </span>
+      </h1>
 
-  <!-- Description -->
- <p class="mt-3 text-gray-700 max-w-2xl leading-relaxed">
-  مساحة آمنة تساعدك على الفهم والاختيار بثقة.
-  من الوقاية والتوعية، إلى الدعم النفسي والتربوي،
-  ومعه دعم روحي دافئ يساعدك على الثبات والطمأنينة
-  من خلال “منازل الروح السبعة”:
-  التقوى، اليقين، التوكل، التسليم، الرضا، الشكر، والمحبة.
-  خطوات بسيطة، عملية، تراعي واقع كل أسرة وتحترم مشاعرها.
-</p>
+      <!-- Short Description (Hero) -->
+      <p class="mt-3 text-secondary" style="max-width: 46rem; line-height: 1.85;">
+        مساحة آمنة تمشي معك خطوة بخطوة.
+        وعي عملي، ودعم نفسي، وسكينة إيمانية
+        تساعدك تكمّلي الطريق بثقة.
+      </p>
+
+      <!-- UX: Expandable "Read more" without JS -->
+      <details class="mt-2" style="max-width: 46rem;">
+        <summary class="fw-semibold" style="
+        cursor: pointer;
+        color:#0EA5A6;
+        user-select: none;
+        outline: none;
+      ">
+          اعرفي التفاصيل
+          <span class="text-muted fw-normal">(اضغطي للتوسيع)</span>
+        </summary>
+
+        <div class="mt-3 p-3 rounded-4" style="
+        background: rgba(14,165,166,.06);
+        border: 1px solid rgba(14,165,166,.14);
+      ">
+          <p class="mb-2 text-secondary" style="line-height: 1.9;">
+            من الوقاية والتوعية، إلى الدعم النفسي والتربوي،
+            ومعه دعم روحي دافئ يساعدك على الثبات والطمأنينة
+            من خلال <strong>منازل الروح السبعة</strong>:
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              التقوى
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              اليقين
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              التوكل
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              التسليم
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              الرضا
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              الشكر
+            </span>
+            <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+              style="background:#FFFFFF; border:1px solid rgba(0,0,0,.06); color:#0F172A;">
+              المحبة
+            </span>
+          </div>
+
+          <p class="mt-3 mb-0 text-secondary" style="line-height: 1.9;">
+            خطوات بسيطة وعملية تراعي واقع كل أسرة وتحترم مشاعرها.
+          </p>
+        </div>
+      </details>
+
+      <!-- UX: clear CTA (optional but powerful) -->
+      <!-- UX: clear CTA (Cards only) -->
+      <div class="mt-4 d-flex flex-wrap gap-2">
+
+        <a href="#cards" class="btn fw-bold rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2" style="
+      background: linear-gradient(135deg, rgba(168,85,247,.14), rgba(14,165,166,.14));
+      color:#0F172A;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 10px 20px rgba(2,6,23,.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    " onmouseenter="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 16px 28px rgba(2,6,23,.12)'"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(2,6,23,.08)'">
+          <i class="pi pi-compass" style="color:#A855F7"></i>
+          ابدئي الرحلة من الأقسام
+          <span class="px-2 py-1 rounded-pill text-sm fw-semibold"
+            style="background: rgba(255,255,255,.75); border: 1px solid rgba(0,0,0,.06); color:#0EA5A6;">
+            اكتشفي الآن
+          </span>
+          <i class="pi pi-arrow-left" style="color:#0EA5A6"></i>
+        </a>
+
+      </div>
 
 
-  <!-- Slogans -->
-<!-- Slogans -->
-<div class="mt-4 d-flex flex-wrap gap-2">
+      <!-- Slogans (fewer, stronger + hover UX) -->
+      <div class="mt-4 d-flex flex-wrap gap-2">
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FFF7ED;color:#B45309">
-    خطوات بطل… لأن كل بطل له رحلته الخاصة
-  </span>
+        <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+          style="background:#FFF7ED;color:#B45309; border:1px solid rgba(180,83,9,.15); transition:transform .15s ease;"
+          onmouseenter="this.style.transform='translateY(-1px)'" onmouseleave="this.style.transform='translateY(0)'">
+          خطوات بطل… لأن كل طفل بطل بطريقته
+        </span>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#F5F3FF;color:#7C3AED">
-    خطوات بطل… خطوة بخطوة نصنع المعجزة
-  </span>
+        <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+          style="background:#F5F3FF;color:#7C3AED; border:1px solid rgba(124,58,237,.15); transition:transform .15s ease;"
+          onmouseenter="this.style.transform='translateY(-1px)'" onmouseleave="this.style.transform='translateY(0)'">
+          خطوات بطل… خطوة صغيرة اليوم تصنع فرقًا كبيرًا
+        </span>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FDF2F8;color:#BE185D">
-    خطوات بطل… معًا نحو أقصى إمكانياتك
-  </span>
+        <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+          style="background:#FDF2F8;color:#BE185D; border:1px solid rgba(190,24,93,.15); transition:transform .15s ease;"
+          onmouseenter="this.style.transform='translateY(-1px)'" onmouseleave="this.style.transform='translateY(0)'">
+          خطوات بطل… وعي يحتضن، لا يضغط
+        </span>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FFF7ED;color:#B45309">
-    خطوات بطل… الحلم يبدأ بخطوة
-  </span>
+        <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+          style="background:#FFF7ED;color:#B45309; border:1px solid rgba(180,83,9,.15); transition:transform .15s ease;"
+          onmouseenter="this.style.transform='translateY(-1px)'" onmouseleave="this.style.transform='translateY(0)'">
+          خطوات بطل… سعي صادق ثم طمأنينة
+        </span>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#F5F3FF;color:#7C3AED">
-    خطوات بطل… كل تقدم إنجاز
-  </span>
+        <span class="px-3 py-1 rounded-pill text-sm fw-semibold"
+          style="background:#F5F3FF;color:#7C3AED; border:1px solid rgba(124,58,237,.15); transition:transform .15s ease;"
+          onmouseenter="this.style.transform='translateY(-1px)'" onmouseleave="this.style.transform='translateY(0)'">
+          خطوات بطل… لأن الله لا يضيع تعبًا </span>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FDF2F8;color:#BE185D">
-    خطوات بطل… لأن الله لا يضيع تعبًا
-  </span>
+      </div>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FFF7ED;color:#B45309">
-    خطوات بطل… يقين، سعي، ثم فتح من الله
-  </span>
+    </div>
 
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#F5F3FF;color:#7C3AED">
-    خطوات بطل… إيدك في إيدي نكبر
-  </span>
-
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FDF2F8;color:#BE185D">
-    خطوات بطل… نكتشف موهبته ونبني مستقبله
-  </span>
-
-  <span class="px-3 py-1 rounded-full text-sm fw-semibold"
-        style="background:#FFF7ED;color:#B45309">
-    خطوات بطل… كل طفل بطل بطريقته
-  </span>
-
-</div>
-
-
-</div>
 
   </div>
 
@@ -117,7 +179,7 @@
 </div>
 
 <!-- COLORFUL STRIP SECTION (like a band) -->
-<section class="mt-6 rounded-4 p-4 p-md-5 border border-black/5 bg-white shadow-sm container">
+<section class="mt-6 rounded-4 p-4 p-md-5 border border-black/5 bg-white shadow-sm container" id="cards">
   <div class="d-flex align-items-end justify-content-between flex-wrap gap-2">
     <div>
       <h2 class="text-2xl md:text-3xl fw-bold">كيف نساعدك اليوم؟</h2>
@@ -147,6 +209,3 @@
 
   <app-journey-like-down-section></app-journey-like-down-section>
 </section>
-
-
-
