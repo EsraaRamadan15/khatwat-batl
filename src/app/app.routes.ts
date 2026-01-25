@@ -12,6 +12,13 @@ export const routes: Routes = [
       { path: 'cards', loadChildren: () => import('./features/helping-cards/helping-cards.routes').then(m => m.Helping_CARDS_ROUTES) },
       { path: 'stories', loadChildren: () => import('./features/stories/stories.routes').then(m => m.STORIES_ROUTES) },
       { path: 'contact-us', loadChildren: () => import('./features/contact-us/contact-us.routes').then(m => m.CONTACTUS_ROUTES) },
+        {
+    path: 'community',
+    loadComponent: () =>
+      import('./features/community-support/pages/community-section.component/community-section.component').then(
+        (m) => m.CommunitySectionComponent,
+      ),
+  },
 
     //   { path: 'down', loadChildren: () => import('./features/down/down.routes').then(m => m.DOWN_ROUTES) },
     //   { path: 'autism', loadChildren: () => import('./features/autism/autism.routes').then(m => m.AUTISM_ROUTES) },

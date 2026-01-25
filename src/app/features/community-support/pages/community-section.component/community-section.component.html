@@ -1,0 +1,77 @@
+<section id="community" class="relative overflow-hidden bg-slate-50">
+  <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-teal-200/40 blur-3xl"></div>
+
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+    <!-- Header (short + clear) -->
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/70 px-3 py-2 shadow-sm">
+        <span
+          class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-100 text-violet-700">✦</span>
+        <span class="font-extrabold text-slate-900">مجتمع خطوات بطل</span>
+        <span class="text-sm text-slate-600">مساحة قصص + لقاءات + غرف نقاش</span>
+      </div>
+
+      <h2 class="mt-4 text-3xl font-black text-slate-900 sm:text-4xl">
+        مكان واحد… لكل الدعم
+      </h2>
+
+      <p class="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+        هنا هنضيف 4 حاجات أساسية: <b class="text-slate-800">قصص حقيقية</b>، <b class="text-slate-800">Zoom</b>،
+        <b class="text-slate-800">غرف نقاش</b>، و<b class="text-slate-800">مشاركة قصة</b>.
+      </p>
+    </div>
+
+    <!-- Quick Overview Grid (first-glance clarity) -->
+ <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+  <button type="button"
+    (click)="$event.preventDefault(); $event.stopPropagation(); scrollTo('community-stories')"
+    class="text-start rounded-3xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:bg-white active:scale-[0.99]">
+    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-2xl">
+      🎧
+    </div>
+    <div class="mt-3 font-black text-slate-900">قصص حقيقية</div>
+    <div class="mt-1 text-xs text-slate-600">صوت وصورة من قلب الرحلة</div>
+  </button>
+
+  <button type="button"
+    (click)="$event.preventDefault(); $event.stopPropagation(); scrollTo('community-sessions')"
+    class="text-start rounded-3xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:bg-white active:scale-[0.99]">
+    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-2xl">
+      🗓️
+    </div>
+    <div class="mt-3 font-black text-slate-900">لقاءات Zoom</div>
+    <div class="mt-1 text-xs text-slate-600">جلسات مع أطباء ومحاضرين</div>
+  </button>
+
+  <button type="button"
+    (click)="$event.preventDefault(); $event.stopPropagation(); scrollTo('community-rooms')"
+    class="text-start rounded-3xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:bg-white active:scale-[0.99]">
+    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">
+      💬
+    </div>
+    <div class="mt-3 font-black text-slate-900">غرف النقاش</div>
+    <div class="mt-1 text-xs text-slate-600">حسب الموضوع… مش شات عام</div>
+  </button>
+
+  <button type="button"
+    (click)="$event.preventDefault(); $event.stopPropagation(); scrollTo('community-share')"
+    class="text-start rounded-3xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:bg-white active:scale-[0.99]">
+    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-2xl">
+      🎙️
+    </div>
+    <div class="mt-3 font-black text-slate-900">شاركي قصتك</div>
+    <div class="mt-1 text-xs text-slate-600">تسجيل أو كتابة قصيرة</div>
+  </button>
+
+</div>
+
+
+    <!-- Sections (now very clean, each isolated) -->
+    <app-community-stories class="block mt-10"></app-community-stories>
+    <app-community-sessions class="block mt-10"></app-community-sessions>
+    <app-community-rooms class="block mt-10"></app-community-rooms>
+    <app-community-share-story class="block mt-10"></app-community-share-story>
+  </div>
+</section>

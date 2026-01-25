@@ -44,7 +44,7 @@ export class HomeComponent {
       desc: 'مساحة آمنة للأمهات: مشاركة التجارب، أسئلة وإجابات، دعم جماعي',
       badge: 'مجتمع',
       icon: 'pi pi-comments',
-      link: '/',
+      link: '/community',
       from: '#F43F5E',
       to: '#8B5CF6',
       tint: 'rgba(244,63,94,.10)'
