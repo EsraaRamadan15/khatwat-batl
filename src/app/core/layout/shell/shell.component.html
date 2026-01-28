@@ -1,31 +1,37 @@
 <div class="min-h-screen bg-gradient-to-b from-[#FFF7EF] via-white to-[#F7FBFF]">
-<header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
-  <div class="container py-2 d-flex align-items-center justify-content-between">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
+    <div class="container  d-flex align-items-center justify-content-between">
 
-    <a routerLink="/" class="no-underline d-flex align-items-center gap-2">
-      <img src="assets/images/logo.jpg" class="w-[26px] h-[26px] rounded" alt="" />
-      <span class="text-xl font-extrabold text-[#B85C00]">
-        <span class="text-dark">خطوات بطل</span>
-      </span>
-    </a>
+      <a routerLink="/" class="no-underline d-flex align-items-center gap-3 select-none">
+        <!-- Bigger Logo -->
+        <img src="assets/images/logo.jpg" class="w-[60px] h-[60px] rounded-2xl shadow-md object-cover"
+          alt="خطوات بطل" />
 
-    <nav class="d-none d-md-flex gap-3 text-sm"></nav>
+        <!-- Title -->
+        <span class="d-flex flex-column lh-1">
+          <span class="text-dark fw-bold tracking-tight"
+            style="font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.05;">
+            خطوات بطل
+          </span>
 
-    <!-- Right side: slogan + button -->
-    <div class="d-flex align-items-center gap-3">
-      <span class="text-[24px] text-slate-600 d-none d-md-inline">
-        كل يوم… بداية أمل لخطوة جديدة
-      </span>
+        </span>
+      </a>
 
-      <p-button
-        label="الصفحة للرئيسية"
-        routerLink="/"
-        styleClass="p-button-sm">
-      </p-button>
+
+      <nav class="d-none d-md-flex gap-3 text-sm"></nav>
+
+      <!-- Right side: slogan + button -->
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-[24px] text-slate-600 d-none d-md-inline">
+          كل يوم… بداية أمل لخطوة جديدة
+        </span>
+
+        <p-button label="الصفحة للرئيسية" routerLink="/" styleClass="p-button-sm">
+        </p-button>
+      </div>
+
     </div>
-
-  </div>
-</header>
+  </header>
 
 
 

@@ -21,10 +21,10 @@ export class HomeComponent {
   cards = [
     { title: 'قبل الزواج', desc: 'وعي + فحوصات + تغذية + وقاية', badge: 'وقاية', icon: 'pi pi-heart', link: '/cards/pre-marriage', from: '#F97316', to: '#FB7185', tint: 'rgba(249,115,22,.10)' },
     { title: 'خلال الحمل', desc: 'وقاية طبية وغذائية ونفسية', badge: 'متابعة', icon: 'pi pi-shield', link: '/cards/pregnancy', from: '#06B6D4', to: '#3B82F6', tint: 'rgba(6,182,212,.10)' },
-    { title: 'قسم الدعم النفسي للأم', desc: 'مساندة الأم نفسيًا في رحلة القبول، الصبر، الأمل، والاستمرار', badge: 'فضفضة أم', icon: 'pi pi-users', link: '/cards/psych-support', from: '#8B5CF6', to: '#EC4899', tint: 'rgba(139,92,246,.10)' },
     {title: 'قسم الدعم الروحي للأم', desc: 'الدعم الروحي للأم باستخدام منازل الروح السبعة', badge: 'طمأنينة',icon: 'pi pi-moon',link: '/seven-houses',from: '#0EA5E9',to: '#14B8A6', tint: 'rgba(14,165,233,.10)'},
     { title: 'قسم التثقيف الصحي', desc: 'فع وعي الأم صحيًا بحالة طفلها', badge: 'وعي', icon: 'pi pi-compass', link: '/cards/hub-suppor', from: '#14B8A6', to: '#22C55E', tint: 'rgba(20,184,166,.10)' },
     { title: 'قسم التثقيف الغذائي', desc: 'مساعدة الأم على بناء نظام غذائي داعم لصحة الطفل وتركيزه ومناعته', badge: 'تثقيف', icon: 'pi pi-sparkles', link: '/cards/nutrition-support', from: '#A855F7', to: '#F59E0B', tint: 'rgba(168,85,247,.10)' },
+     { title: 'قسم الدعم المجتمعي', desc: 'مساندة الأم نفسيًا في رحلة القبول، الصبر، الأمل، والاستمرار', badge: ' دعم', icon: 'pi pi-users', link: '/cards/psych-support', from: '#8B5CF6', to: '#EC4899', tint: 'rgba(139,92,246,.10)' },
     { title: 'قسم التعليم واكتشاف نقاط القوة', desc: 'تمكين الام من تعليم طفلها في البيت ,اكتشاف مواهبه, تنمية قدراته', badge: 'قياس', icon: 'pi pi-sliders-h', link: '/cards/education-support', from: '#EF4444', to: '#F97316', tint: 'rgba(239,68,68,.10)' },
     {
       title: 'أدوات تفاعلية بالموقع',
@@ -36,12 +36,9 @@ export class HomeComponent {
       to: '#06B6D4',   // Cyan
       tint: 'rgba(79,70,229,.10)'
     },
-
-
-
     {
-      title: 'قسم المجتمع',
-      desc: 'مساحة آمنة للأمهات: مشاركة التجارب، أسئلة وإجابات، دعم جماعي',
+      title: 'ملتقى الأمهات  ',
+      desc:  ' مساحة آمنة للأمهات: لقاءات Zoom مع دكاترة ومتخصصين، مشاركة قصص حقيقية بالصوت والصورة، وفرص للتواصل المباشر والدردشة بين الأمهات',
       badge: 'مجتمع',
       icon: 'pi pi-comments',
       link: '/community',
