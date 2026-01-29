@@ -1,0 +1,52 @@
+:host ::ng-deep{
+    /* ========= PrimeNG Tabs: Light style to match page ========= */
+.p-tablist{
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.10),
+    rgba(59, 130, 246, 0.10),
+    rgba(245, 158, 11, 0.10)
+  ) !important;
+
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-radius: 18px !important;
+  padding: 8px !important;
+  gap: 8px !important;
+}
+
+.p-tabpanels {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-radius: 24px !important;
+  margin-top: 12px !important;
+  padding: 14px !important;
+}
+
+/* each tab button */
+.p-tab {
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* tab label */
+.p-tab .p-tab-title {
+  color: rgba(15, 23, 42, 0.90) !important; /* slate-900-ish */
+  font-weight: 800 !important;
+}
+
+/* active tab */
+.p-tab.p-highlight {
+  background: white !important;
+  border-color: rgba(16, 185, 129, 0.30) !important;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* optional: remove any dark ink bars if present */
+.p-tablist .p-tablist-active-bar {
+  background: rgba(16, 185, 129, 0.55) !important;
+  border-radius: 999px !important;
+  height: 3px !important;
+}
+
+}

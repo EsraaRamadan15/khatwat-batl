@@ -1,46 +1,44 @@
 <div class="min-h-screen bg-gradient-to-b from-[#FFF7EF] via-white to-[#F7FBFF]">
   <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-black/5">
-    <div class="container  d-flex align-items-center justify-content-between">
+    <div class="container px-3 py-2 md:py-3">
 
-      <a routerLink="/" class="no-underline d-flex align-items-center gap-3 select-none">
-        <!-- Bigger Logo -->
-        <img src="assets/images/logo.jpg" class="w-[60px] h-[60px] rounded-2xl shadow-md object-cover"
-          alt="خطوات بطل" />
+      <!-- Desktop row -->
+      <div class="d-flex align-items-center justify-content-between gap-3">
+        <!-- Left pic -->
+        <a routerLink="/" class="no-underline d-flex align-items-center select-none">
+          <img src="assets/images/logo.jpg" class="w-[190px] sm:w-[230px] md:w-[280px]
+         h-auto max-h-[50px]
+          object-contain scale-125" />
 
-        <!-- Title -->
-        <span class="d-flex flex-column lh-1">
-          <span class="text-dark fw-bold tracking-tight"
-            style="font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.05;">
-            خطوات بطل
-          </span>
+        </a>
 
-        </span>
-      </a>
-
-
-      <nav class="d-none d-md-flex gap-3 text-sm"></nav>
-
-      <!-- Right side: slogan + button -->
-      <div class="d-flex align-items-center gap-3">
-        <span class="text-[24px] text-slate-600 d-none d-md-inline">
+        <!-- Slogan (hidden on mobile, shown md+) -->
+        <span class="d-none d-md-inline text-blue-600 text-[16px] md:text-[20px] lg:text-[24px] text-center">
           كل يوم… بداية أمل لخطوة جديدة
         </span>
 
-        <p-button label="الصفحة للرئيسية" routerLink="/" styleClass="p-button-sm">
-        </p-button>
+        <!-- Right pic -->
+        <a routerLink="/" class="no-underline d-flex align-items-center select-none">
+          <img src="assets/images/main.jpg" class="w-[110px] sm:w-[130px] md:w-[150px] h-auto max-h-[44px] sm:max-h-[52px] md:max-h-[60px]
+                   rounded-2xl shadow-md object-contain" alt="خطوات بطل" />
+        </a>
+      </div>
+
+      <!-- Mobile: slogan on next line -->
+      <div class="d-md-none mt-2 text-center">
+        <span class="text-blue-600 text-[14px] sm:text-[16px]">
+          كل يوم… بداية أمل لخطوة جديدة
+        </span>
       </div>
 
     </div>
   </header>
 
-
-
-  <main class=" py-4">
+  <main class="">
     <router-outlet></router-outlet>
   </main>
 
   <footer class="py-4 text-sm text-gray-600 bg-white/70 border-t border-black/5 text-center">
     <p class="px-3">© خطوات بطل</p>
   </footer>
-
 </div>

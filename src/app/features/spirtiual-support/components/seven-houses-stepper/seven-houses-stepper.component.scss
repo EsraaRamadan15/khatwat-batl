@@ -9,4 +9,17 @@
 
     transform: translateX(100%) !important;
 }
+
+
+
+/* Make PrimeNG Steps wrap nicely on small screens */
+ .steps-shell .p-steps .p-steps-list {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+ .steps-shell .p-steps .p-steps-item {
+  flex: 1 1 auto;
+  min-width: 130px; /* tweak if you want smaller */
+}
 }

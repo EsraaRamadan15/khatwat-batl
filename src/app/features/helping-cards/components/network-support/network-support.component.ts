@@ -1,0 +1,351 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { FaqItem, Scope, ScopeFilter, SiteCard, VideoItem } from './models/network-model';
+
+
+
+
+@Component({
+  selector: 'app-network-support',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './network-support.component.html',
+})
+export class NetworkSupportComponent {
+  constructor(private sanitizer: DomSanitizer) {}
+
+  // ===== Header
+  title = 'قوة الأم تبدأ بالمعرفة';
+  subtitle = 'أدوات عملية + دعم مجتمعي + جهات رسمية ومبادرات';
+  intro ='لأن الدعم الحقيقي يبدأ بمعلومة صحيحة وخطوة عملية: هذا القسم يجمع لك أسئلة شائعة بإجابات واضحة، فيديوهات توعوية، وروابط لمصادر موثوقة تشمل مبادرات الدولة والمؤسسات الأهلية والمنصات العربية والعالمية.';
+  // ===== Tabs
+  activeTab: 'faq' | 'videos' | 'sites' = 'faq';
+
+  // ===== Filters
+  query = '';
+  selectedTag: string = 'الكل';
+  tags: string[] = ['الكل', 'مشاعر', 'دمج', 'دعم', 'قياس', 'منهج الإحسان'];
+
+  scope: ScopeFilter = 'all';
+  mediaQuery = '';
+
+  // ===== FAQ
+  faqs: FaqItem[] = [
+    {
+      tag: 'مشاعر',
+      q: 'كيف أتعامل مع مشاعر القلق والحزن التي تنتابني كأم لطفل داون؟',
+      a: 'ابدئي بتسمية الشعور بدون لوم. خصصي 10 دقائق يوميًا للتفريغ (كتابة/دعاء/تنفّس). واطلبي دعمًا عمليًا صغيرًا. لا تقارني رحلتك بغيرك، وركزي على خطوة واحدة يوميًا.',
+    },
+    {
+      tag: 'مشاعر',
+      q: 'كيف أتعامل مع نظرات الناس أو قلة تفهمهم؟',
+      a: 'حضّري جملة قصيرة محترمة: “ابني/بنتي عنده اختلاف نمائي وبنشتغل على الدعم”. إن كان الموقف مؤذيًا انسحبي بهدوء. ابنك ليس مشروعًا لإرضاء الناس.',
+    },
+    {
+      tag: 'دمج',
+      q: 'ما أبرز التحديات في دمج الطفل بالمدرسة؟',
+      a: 'غالبًا: نقص التدريب، وغياب خطة دعم فردية واضحة، وضعف التواصل بين البيت والمدرسة. الحل: ملف متابعة بسيط + اجتماع شهري + أهداف صغيرة قابلة للقياس.',
+    },
+    {
+      tag: 'دمج',
+      q: 'ما الذي أتمنى تغييره في المدارس لتكون أكثر دعمًا؟',
+      a: 'خطة دعم فردية، تدريب المعلمين، مرونة في التقييم، أخصائي/مرشد دمج متابع، وبيئة تمنع التنمّر وتدعم تقبّل الاختلاف.',
+    },
+    {
+      tag: 'دعم',
+      q: 'ما أهم أنواع الدعم التي يحتاجها طفلك لتجاوز تحديات الدمج؟',
+      a: 'ثلاث دوائر: طبي (متابعة)، تعليمي (خطة وتواصل)، ونفسي للأسرة (حماية البيت من الاحتراق).',
+    },
+    {
+      tag: 'قياس',
+      q: 'كيف نقيس الاحتراق النفسي للأمهات؟',
+      a: 'راقبي: إرهاق عاطفي، توتر دائم، نوم مضطرب، فقدان متعة، غضب سريع. عمليًا: مقياس أسبوعي (0-10) لثلاثة محاور: إرهاق/ضغط/انطفاء. لو مرتفع أسبوعين متتاليين، نحتاج تقليل حمل + دعم + استشارة.',
+    },
+    {
+      tag: 'منهج الإحسان',
+      q: 'كيف نقيس مدى الالتزام بمنهج الإحسان (منازل الروح السبعة)؟',
+      a: 'اعملي “مؤشر أسبوعي”: لكل منزل عادة صغيرة (5-10 دقائق). قيّمي الالتزام يوميًا 0/1. الهدف الاستمرارية لا الكمال.',
+    },
+  ];
+
+  // ===== Videos (فيديوهات/بوستات)
+  videos: VideoItem[] = [
+    {
+      title: 'فيديو (Facebook)',
+      desc: 'محتوى توعوي عن تربية/دعم أطفال ذوي الهمم (ظهر مرتبط بـ "جيجي أبو شادي")',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/v/1HC4nKgAyD/',
+      badge: 'فيسبوك',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'فيديو (Facebook)',
+      desc: 'محتوى توعوي عن ذوي الاحتياجات الخاصة/الدعم الأسري (ظهر مرتبط بـ "Gigi Abou Shady")',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/v/1D97dzER8C/',
+      badge: 'فيسبوك',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'منشور (Facebook)',
+      desc: 'الفعاليات والتجارب الفنية الدامجة بمعرض القاهرة الدولي للكتاب في دورته الـ57',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/p/1EXvGGQ5UP/',
+      badge: 'فعالية',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'منشور (Facebook)',
+      desc: 'الدورة التأسيسية الأولى لمهرجان مصر الدولي لمسرح الطفل والعرائس',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/p/17sLvfMBwL/',
+      badge: 'فعالية',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'منشور (Facebook)',
+      desc: 'العرض المسرحي (السنجاب الوحيد) ضمن فعاليات مسار ذوي الاحتياجات الخاصة',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/p/1AHGV5P6v1/',
+      badge: 'مسرح',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'منشور (Facebook)',
+      desc: 'تعزيز الوعي بقضايا الأشخاص ذوي الإعاقة وتمكينهم داخل المؤسسات التعليمية والمجتمع (ندوة توعوية بالأكاديمية العربية للعلوم والتكنولوجيا).',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/p/1BKBkMg3Fw/',
+      badge: 'ندوة',
+      icon: 'pi pi-facebook',
+      scope: 'egypt',
+    },
+    {
+      title: 'فيديو (Facebook)',
+      desc: 'العلاج الرياضي وتأثيره على ذوي الهمم. د. عبير شعبان تشرح التأثير على القدرات الجسدية والنفسية.',
+      provider: 'facebook',
+      url: 'https://www.facebook.com/share/v/1HvUndfWa5/',
+      badge: 'علاج رياضي',
+      icon: 'pi pi-heart',
+      scope: 'egypt',
+    },
+  ];
+
+  // ===== Sites (مصادر/جهات/مبادرات/روابط)
+siteCards: SiteCard[] = [
+  // ========= مصر: قادرون باختلاف (مجمع)
+  {
+    title: 'قادرون باختلاف (مبادرة رئاسية مصرية)',
+    desc: 'مبادرة بدأت عام 2018 لدعم وتمكين ذوي الهمم، وإبراز القدرات والمواهب، وتحويل نظرة المجتمع من الشفقة إلى الاحترام.',
+    badge: 'مصر • مبادرة رسمية',
+    icon: 'pi pi-verified',
+    scope: 'egypt',
+    links: [
+      { label: 'موقع رئاسة الجمهورية', url: 'https://www.presidency.eg/', icon: 'pi pi-globe' },
+      { label: 'فيسبوك (صفحة المبادرة)', url: 'https://www.facebook.com/share/17wTg4eX7r.', icon: 'pi pi-facebook' },
+      { label: 'إنستجرام', url: 'https://www.instagram.com/qaderon.bkhtelaf/', icon: 'pi pi-instagram' },
+    ],
+  },
+
+  // ========= مصر: جهات/مؤسسات
+  {
+    title: 'وزارة الشباب والرياضة – مكتب ذوي القدرات والهمم',
+    desc: 'صفحة رسمية للبرامج والمبادرات والأنشطة الداعمة للدمج والرياضة لذوي الهمم.',
+    badge: 'جهة رسمية',
+    icon: 'pi pi-building',
+    scope: 'egypt',
+    links: [
+      { label: 'فيسبوك', url: 'https://www.facebook.com/share/186zSskWs3/', icon: 'pi pi-facebook' },
+    ],
+  },
+  {
+    title: 'المؤسسة المصرية لمتلازمة داون | Cairo',
+    desc: 'مؤسسة مصرية رائدة في الخدمات الصحية والطبية والتدخل المبكر لأبطال متلازمة داون.',
+    badge: 'مؤسسة',
+    icon: 'pi pi-users',
+    scope: 'egypt',
+    links: [
+      { label: 'فيسبوك', url: 'https://www.facebook.com/share/1NKK2vKsXe/', icon: 'pi pi-facebook' },
+    ],
+  },
+  {
+    title: 'نُمكِّن – Nomaken',
+    desc: 'مبادرة مصرية لدعم وتمكين أسر أطفال متلازمة داون والإرشاد الأسري.',
+    badge: 'مبادرة مصرية',
+    icon: 'pi pi-users',
+    scope: 'egypt',
+    links: [{ label: 'الموقع', url: 'https://nomaken.com/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'مؤسسة الفلك الخيرية – Alfolk',
+    desc: 'خدمات تعليم وتأهيل وفق مناهج علمية لتطوير المهارات الحياتية والاجتماعية (تشمل داون).',
+    badge: 'مؤسسة',
+    icon: 'pi pi-building',
+    scope: 'egypt',
+    links: [{ label: 'الموقع', url: 'https://alfolk.net/en/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'Ebtessama Foundation – Orange Egypt',
+    desc: 'تمكين الأشخاص ذوي الإعاقة للتعليم والعمل والاندماج المجتمعي.',
+    badge: 'تمكين',
+    icon: 'pi pi-briefcase',
+    scope: 'egypt',
+    links: [
+      {
+        label: 'الموقع',
+        url: 'https://www.orange.eg/en/about/company-overview/social-responsibility/initiative-200hands/trained-employed/ebtessama',
+        icon: 'pi pi-globe',
+      },
+    ],
+  },
+  {
+    title: 'Humanity & Inclusion – Egypt',
+    desc: 'تحسين الوصول للخدمات الصحية والتعليمية وتأهيل الأطفال ذوي الإعاقة.',
+    badge: 'دعم إنساني',
+    icon: 'pi pi-heart',
+    scope: 'egypt',
+    links: [{ label: 'الموقع', url: 'https://www.hi-us.org/en/country/egypt', icon: 'pi pi-globe' }],
+  },
+
+  // ========= عربي
+  {
+    title: 'منصة متلازمة داون (عربية)',
+    desc: 'محتوى عربي، مقالات، موارد تعليمية وتواصل مع مختصين.',
+    badge: 'محتوى عربي',
+    icon: 'pi pi-language',
+    scope: 'arab',
+    links: [{ label: 'الموقع', url: 'https://www.downsyndrome.site/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'جمعية الإمارات لمتلازمة داون',
+    desc: 'جمعية غير ربحية تقدم خدمات تعليمية وتأهيلية وبرامج دعم للأسر ومناصرة لحقوق ذوي متلازمة داون.',
+    badge: 'الإمارات',
+    icon: 'pi pi-heart-fill',
+    scope: 'arab',
+    links: [{ label: 'الموقع', url: 'https://edsa.ae/ar/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'الجمعية البحرينية لمتلازمة داون (BDSS)',
+    desc: 'برامج تعليمية وتأهيلية وتوعوية ودمج مجتمعي.',
+    badge: 'البحرين',
+    icon: 'pi pi-users',
+    scope: 'arab',
+    links: [{ label: 'الموقع', url: 'https://www.bdss.bh/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'MENA Organization for Rare Diseases',
+    desc: 'منظمة إقليمية تربط الأسر بالخدمات الطبية وتدعم التوعية (تشمل الأمراض النادرة ومنها داون).',
+    badge: 'إقليمي',
+    icon: 'pi pi-share-alt',
+    scope: 'arab',
+    links: [{ label: 'الموقع', url: 'https://menararediseases.org/', icon: 'pi pi-globe' }],
+  },
+  {
+    title: 'السعودية: مراكز وجمعيات داعمة',
+    desc: 'مجموعة روابط رسمية/مفيدة لدعم ذوي متلازمة داون وذوي الإعاقة داخل السعودية.',
+    badge: 'السعودية',
+    icon: 'pi pi-flag',
+    scope: 'arab',
+    links: [
+      { label: 'الجمعية السعودية لمتلازمة داون (DSCA)', url: 'https://dsca.org.sa', icon: 'pi pi-globe' },
+      { label: 'Saudi Center (Instagram)', url: 'https://www.instagram.com/saudi_center/', icon: 'pi pi-instagram' },
+      { label: 'جمعية الأشخاص ذوي الإعاقة', url: 'https://www.hdisabled.org.sa', icon: 'pi pi-globe' },
+      {
+        label: 'مركز المهيدب (هبة) – بحث',
+        url: 'https://www.google.com/search?q=%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D9%85%D9%87%D9%8A%D8%AF%D8%A8+%D9%84%D9%85%D8%AA%D9%84%D8%A7%D8%B2%D9%85%D8%A9+%D8%AF%D8%A7%D9%88%D9%86+%D9%87%D8%A8%D8%A9',
+        icon: 'pi pi-search',
+      },
+    ],
+  },
+
+  // ========= عالمي
+  {
+    title: 'منظمات صحية عالمية',
+    desc: 'مراجع صحية موثوقة للتطور والنمو ومعلومات عامة.',
+    badge: 'موثوق',
+    icon: 'pi pi-globe',
+    scope: 'world',
+    links: [
+      { label: 'WHO', url: 'https://www.who.int/', icon: 'pi pi-globe' },
+      { label: 'CDC – Child Development', url: 'https://www.cdc.gov/ncbddd/childdevelopment/index.html', icon: 'pi pi-verified' },
+    ],
+  },
+  {
+    title: 'شبكات ومنظمات متلازمة داون (عالمي)',
+    desc: 'دعم عائلي، موارد، تعليم، ومناصرة عالمية.',
+    badge: 'عالمي',
+    icon: 'pi pi-users',
+    scope: 'world',
+    links: [
+      { label: 'Down Syndrome International', url: 'https://ds-int.org/', icon: 'pi pi-globe' },
+      { label: 'Global Down Syndrome Foundation', url: 'https://www.globaldownsyndrome.org/', icon: 'pi pi-heart' },
+      { label: 'NDSS', url: 'https://www.ndss.org/', icon: 'pi pi-users' },
+      { label: 'NDSC', url: 'https://www.ndsccenter.org/', icon: 'pi pi-book' },
+      { label: 'Down Syndrome Education', url: 'https://www.down-syndrome.org/', icon: 'pi pi-graduation-cap' },
+    ],
+  },
+];
+
+  // ===== computed
+  get filteredFaqs(): FaqItem[] {
+    const q = this.query.trim().toLowerCase();
+    return this.faqs.filter((x) => {
+      const matchesText =
+        !q || x.q.toLowerCase().includes(q) || x.a.toLowerCase().includes(q);
+      const matchesTag =
+        this.selectedTag === 'الكل' || x.tag === (this.selectedTag as any);
+      return matchesText && matchesTag;
+    });
+  }
+
+  get filteredVideos(): VideoItem[] {
+    const q = this.mediaQuery.trim().toLowerCase();
+    return this.videos.filter((v) => {
+      const matchesScope = this.scope === 'all' || v.scope === this.scope;
+      const text = (v.title + ' ' + (v.desc ?? '')).toLowerCase();
+      const matchesText = !q || text.includes(q);
+      return matchesScope && matchesText;
+    });
+  }
+
+get filteredSiteCards(): SiteCard[] {
+  const q = this.mediaQuery.trim().toLowerCase();
+  return this.siteCards.filter((c) => {
+    const matchesScope = this.scope === 'all' || c.scope === this.scope;
+
+    const linkText = c.links.map(l => `${l.label} ${l.url}`).join(' ');
+    const haystack = `${c.title} ${c.desc ?? ''} ${c.badge ?? ''} ${linkText}`.toLowerCase();
+
+    const matchesText = !q || haystack.includes(q);
+    return matchesScope && matchesText;
+  });
+}
+
+
+  // ===== helpers
+  safe(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  setTab(t: 'faq' | 'videos' | 'sites') {
+    this.activeTab = t;
+    this.mediaQuery = '';
+    this.scope = 'all';
+  }
+
+  setScope(s: ScopeFilter) {
+    this.scope = s;
+  }
+
+  scopeLabel(s: Scope): string {
+    if (s === 'egypt') return '🇪🇬 مصر';
+    if (s === 'arab') return '🌐 عربي';
+    return '🌍 عالمي';
+  }
+}

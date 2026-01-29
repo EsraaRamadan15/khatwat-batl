@@ -18,8 +18,8 @@ export const Helping_CARDS_ROUTES: Routes = [
   {
     path: 'psych-support',
     loadComponent: () =>
-      import('./components/psych-support/psych-support.component').then(
-        (m) => m.PsychSupportComponent,
+      import('./components/network-support/network-support.component').then(
+        (m) => m.NetworkSupportComponent,
       ),
   },
   {
@@ -50,5 +50,11 @@ export const Helping_CARDS_ROUTES: Routes = [
         (m) => m.InteractiveToolsComponent,
       ),
   },
-
+  {
+    path: 'mental-support',
+    loadComponent: () =>
+      import('./components/mental-support/mental-support.component').then(
+        (m) => m.MentalSupportComponent,
+      ),
+  },
 ];

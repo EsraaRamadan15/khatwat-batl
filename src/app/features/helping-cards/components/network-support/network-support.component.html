@@ -1,0 +1,307 @@
+<section dir="rtl" class="mx-auto max-w-[1100px] px-3">
+
+  <!-- HERO -->
+  <header class="mt-4 overflow-hidden rounded-4 border border-black/5 shadow-sm
+                 bg-gradient-to-br from-teal-500/10 via-sky-400/10 to-rose-300/10">
+    <div class="p-4 md:p-5 relative">
+
+      <!-- blobs -->
+      <div class="pointer-events-none absolute -top-12 -left-12 h-48 w-48 rounded-full blur-3xl
+                  bg-rose-400/25"></div>
+      <div class="pointer-events-none absolute -bottom-12 -right-12 h-48 w-48 rounded-full blur-3xl
+                  bg-teal-400/25"></div>
+
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 rounded-full bg-white/80 border border-black/5 px-3 py-2">
+          <i class="pi pi-heart text-orange-500"></i>
+          <span class="font-extrabold text-slate-900">{{ title }}</span>
+          <span class="text-slate-500">{{ subtitle }}</span>
+        </div>
+
+        <h1 class="mt-3 font-extrabold text-slate-900 text-[clamp(22px,3.2vw,42px)]">
+          أنتِ مش لوحدك…
+        </h1>
+
+        <p class="mt-3 text-slate-600 leading-relaxed max-w-[900px]">
+          {{ intro }}
+        </p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <div class="mt-4 rounded-4 border border-black/5 bg-white shadow-sm overflow-hidden">
+    <div class="p-3 md:p-4 border-b border-black/5 flex flex-wrap items-center gap-2">
+
+      <button (click)="setTab('faq')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+        [ngClass]="activeTab === 'faq'
+          ? 'bg-teal-500 text-white shadow-sm'
+          : 'bg-white text-slate-800 hover:bg-slate-50'">
+        الأسئلة والإجابات
+      </button>
+
+      <button (click)="setTab('videos')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+        [ngClass]="activeTab === 'videos'
+          ? 'bg-violet-500 text-white shadow-sm'
+          : 'bg-white text-slate-800 hover:bg-slate-50'">
+        منشورات ومقاطع فيديو </button>
+
+      <button (click)="setTab('sites')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+        [ngClass]="activeTab === 'sites'
+          ? 'bg-sky-500 text-white shadow-sm'
+          : 'bg-white text-slate-800 hover:bg-slate-50'">
+        مواقع ومصادر
+      </button>
+
+      <!-- Search / filter (only for FAQ) -->
+      <div class="ms-auto flex flex-wrap items-center gap-2" *ngIf="activeTab === 'faq'">
+        <select class="px-3 py-2 rounded-full border border-black/10 bg-white text-slate-800" [(ngModel)]="selectedTag">
+          <option *ngFor="let t of tags" [value]="t">{{ t }}</option>
+        </select>
+
+        <input type="text" [(ngModel)]="query" placeholder="ابحثي في الأسئلة…" class="px-4 py-2 rounded-full border border-black/10 bg-white
+                 outline-none focus:ring-2 focus:ring-teal-300 w-[260px] max-w-full" />
+      </div>
+
+      <!-- Search / scope (videos/sites) -->
+      <div class="ms-auto flex flex-wrap items-center gap-2" *ngIf="activeTab !== 'faq'">
+
+        <!-- Scope chips -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button (click)="setScope('all')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+            [ngClass]="scope === 'all'
+              ? (activeTab === 'videos' ? 'bg-violet-500 text-white' : 'bg-sky-500 text-white')
+              : 'bg-white text-slate-800 hover:bg-slate-50'">
+            الكل
+          </button>
+
+          <button (click)="setScope('egypt')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+            [ngClass]="scope === 'egypt'
+              ? (activeTab === 'videos' ? 'bg-violet-500 text-white' : 'bg-sky-500 text-white')
+              : 'bg-white text-slate-800 hover:bg-slate-50'">
+            🇪🇬 مصر
+          </button>
+
+          <button (click)="setScope('arab')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+            [ngClass]="scope === 'arab'
+              ? (activeTab === 'videos' ? 'bg-violet-500 text-white' : 'bg-sky-500 text-white')
+              : 'bg-white text-slate-800 hover:bg-slate-50'">
+            🌐 عربي
+          </button>
+
+          <button (click)="setScope('world')" class="px-3 py-2 rounded-full border border-black/10 font-bold transition"
+            [ngClass]="scope === 'world'
+              ? (activeTab === 'videos' ? 'bg-violet-500 text-white' : 'bg-sky-500 text-white')
+              : 'bg-white text-slate-800 hover:bg-slate-50'">
+            🌍 عالمي
+          </button>
+        </div>
+
+        <!-- Media search -->
+        <input type="text" [(ngModel)]="mediaQuery"
+          [placeholder]="activeTab === 'videos' ? 'ابحثي في الفيديوهات…' : 'ابحثي في المصادر…'" class="px-4 py-2 rounded-full border border-black/10 bg-white
+                 outline-none focus:ring-2
+                 w-[260px] max-w-full" [ngClass]="activeTab === 'videos'
+            ? 'focus:ring-violet-200'
+            : 'focus:ring-sky-200'" />
+
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="p-3 md:p-4" *ngIf="activeTab === 'faq'">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <details *ngFor="let f of filteredFaqs" class="group rounded-3xl border border-black/5 bg-white p-4
+                 shadow-[0_12px_26px_rgba(0,0,0,.06)]">
+
+          <summary class="cursor-pointer list-none flex items-start gap-3">
+            <span class="mt-1 h-9 w-9 rounded-full grid place-items-center
+                         bg-teal-500/10 border border-teal-500/20 text-teal-700">
+              <i class="pi pi-question"></i>
+            </span>
+
+            <div class="flex-1">
+              <div class="font-extrabold text-slate-900 leading-snug">
+                {{ f.q }}
+              </div>
+
+              <div class="mt-1 inline-flex items-center gap-2" *ngIf="f.tag">
+                <span class="text-[12px] font-bold px-2 py-1 rounded-full
+                             bg-slate-100 text-slate-700 border border-black/5">
+                  {{ f.tag }}
+                </span>
+                <span class="text-[12px] text-slate-500">
+                  اضغطي لعرض الإجابة
+                </span>
+              </div>
+            </div>
+
+            <span class="mt-1 text-slate-500 group-open:rotate-180 transition">
+              <i class="pi pi-angle-down"></i>
+            </span>
+          </summary>
+
+          <div class="mt-3 text-slate-600 leading-relaxed font-semibold">
+            {{ f.a }}
+          </div>
+        </details>
+      </div>
+
+      <div *ngIf="filteredFaqs.length === 0"
+        class="mt-3 rounded-3xl border border-black/5 bg-slate-50 p-4 text-slate-700 font-semibold">
+        لا توجد نتائج مطابقة للبحث.
+      </div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="p-3 md:p-4" *ngIf="activeTab === 'videos'">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div *ngFor="let v of filteredVideos" class="rounded-3xl border border-black/5 bg-white overflow-hidden
+                 shadow-[0_12px_26px_rgba(0,0,0,.06)]">
+
+          <!-- header -->
+          <div class="flex items-start justify-between gap-3 p-4">
+            <div>
+              <div class="font-extrabold text-slate-900">{{ v.title }}</div>
+              <div class="text-slate-500 mt-1" *ngIf="v.desc">{{ v.desc }}</div>
+
+              <!-- scope badge -->
+              <div class="mt-2 inline-flex items-center gap-2">
+                <span class="text-[11px] font-extrabold px-2 py-1 rounded-full border border-black/5" [ngClass]="v.scope === 'egypt'
+                    ? 'bg-amber-500/10 text-amber-700'
+                    : v.scope === 'arab'
+                      ? 'bg-emerald-500/10 text-emerald-700'
+                      : 'bg-sky-500/10 text-sky-700'">
+                  {{ scopeLabel(v.scope) }}
+                </span>
+                <span class="text-[11px] text-slate-400 font-bold" *ngIf="v.duration">
+                  ⏱ {{ v.duration }}
+                </span>
+              </div>
+            </div>
+
+            <span *ngIf="v.badge" class="shrink-0 text-[12px] font-bold px-2 py-1 rounded-full
+                     bg-slate-100 text-slate-700 border border-black/5">
+              <i *ngIf="v.icon" class="{{ v.icon }} me-1"></i>
+              {{ v.badge }}
+            </span>
+          </div>
+
+          <!-- YouTube iframe -->
+          <div *ngIf="v.provider === 'youtube'" class="aspect-video bg-black/5">
+            <iframe class="w-full h-full" [src]="safe(v.embedUrl!)" title="Video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Facebook / Link: open external -->
+          <div *ngIf="v.provider !== 'youtube'" class="p-4 bg-slate-50 border-t border-black/5">
+            <a [href]="v.url" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-2xl
+                     bg-white border border-black/10 font-extrabold text-slate-900 no-underline
+                     hover:bg-slate-100 transition w-full sm:w-auto">
+              <i class="pi pi-external-link"></i>
+              <span>افتحي الرابط</span>
+            </a>
+
+            <div *ngIf="v.provider === 'facebook'" class="mt-2 text-[12px] text-slate-500 font-semibold">
+              ملاحظة: روابط فيسبوك قد لا تعمل داخل iframe، لذلك يتم فتحها خارجيًا.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="filteredVideos.length === 0"
+        class="mt-3 rounded-3xl border border-black/5 bg-slate-50 p-4 text-slate-700 font-semibold">
+        لا توجد فيديوهات مطابقة.
+      </div>
+    </div>
+
+    <!-- SITES -->
+    <div class="p-3 md:p-4" *ngIf="activeTab === 'sites'">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+        <div *ngFor="let s of filteredSiteCards" class="rounded-3xl border border-black/5 bg-white p-4
+             shadow-[0_12px_26px_rgba(0,0,0,.06)]
+             hover:-translate-y-1 transition">
+
+          <div class="flex items-start gap-3">
+            <div class="h-11 w-11 rounded-2xl grid place-items-center
+                    bg-sky-500/10 border border-sky-500/20 text-sky-700 shrink-0">
+              <i class="{{ s.icon || 'pi pi-link' }}"></i>
+            </div>
+
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <div class="font-extrabold text-slate-900">{{ s.title }}</div>
+
+                <span class="text-[11px] font-extrabold px-2 py-1 rounded-full border border-black/5" [ngClass]="s.scope === 'egypt'
+                ? 'bg-amber-500/10 text-amber-700'
+                : s.scope === 'arab'
+                  ? 'bg-emerald-500/10 text-emerald-700'
+                  : 'bg-sky-500/10 text-sky-700'">
+                  {{ scopeLabel(s.scope) }}
+                </span>
+
+                <span *ngIf="s.badge" class="text-[12px] font-bold px-2 py-1 rounded-full
+                     bg-emerald-500/10 text-emerald-700 border border-emerald-500/20">
+                  {{ s.badge }}
+                </span>
+              </div>
+
+              <div class="mt-1 text-slate-500" *ngIf="s.desc">{{ s.desc }}</div>
+
+              <!-- ✅ multiple links -->
+              <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a *ngFor="let l of s.links" [href]="l.url" target="_blank" rel="noopener" class="no-underline inline-flex items-center justify-center gap-2
+                     px-3 py-2 rounded-2xl bg-slate-50 border border-black/5
+                     font-extrabold text-slate-900 hover:bg-slate-100 transition">
+                  <i class="{{ l.icon || 'pi pi-external-link' }}"></i>
+                  <span>{{ l.label }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Helpful Notes (Egypt) -->
+      <div class="mt-6 rounded-3xl border border-black/5 bg-amber-50 p-4 md:p-5">
+        <div class="flex items-start gap-3">
+          <div class="h-10 w-10 rounded-2xl grid place-items-center
+                bg-amber-500/15 border border-amber-500/25 text-amber-700 shrink-0">
+            <i class="pi pi-info-circle"></i>
+          </div>
+
+          <div>
+            <div class="font-extrabold text-slate-900 mb-1">
+              📌 ملاحظات مفيدة في مصر
+            </div>
+
+            <p class="text-slate-700 leading-relaxed mb-2">
+              المنظمات غير المتخصصة فقط في متلازمة داون قد تقدّم دعمًا مهمًا للأسر،
+              مثل التدريبات، التأهيل، التوجيه، والتوعية بالحقوق.
+            </p>
+
+            <p class="text-slate-700 leading-relaxed">
+              يمكنكِ أيضًا التواصل مع <span class="font-bold">مديريات التضامن الاجتماعي</span>
+              في محافظتك لمعرفة البرامج المحلية، مبادرات التوعية، والورش المجتمعية
+              الخاصة بمتلازمة داون.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="filteredSiteCards.length === 0"
+        class="mt-3 rounded-3xl border border-black/5 bg-slate-50 p-4 text-slate-700 font-semibold">
+        لا توجد مصادر مطابقة.
+      </div>
+    </div>
+
+
+  </div>
+</section>

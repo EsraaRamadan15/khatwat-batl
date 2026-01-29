@@ -1,55 +1,60 @@
-<section class=" p-0 rounded-4 border border-black/5 shadow-sm overflow-hidden bg-white mx-auto" dir="rtl">
+<section class="w-full max-w-[980px] p-0 rounded-4 border border-black/5 shadow-sm overflow-hidden bg-white mx-auto"
+  dir="rtl">
 
   <!-- Header -->
-  <header class="p-4 md:p-5
+  <header class="p-4 sm:p-5
            bg-gradient-to-br
            from-sky-500/10
            via-emerald-500/10
            to-pink-300/15">
 
     <div class="inline-flex items-center gap-2 px-3 py-2 rounded-full
-         bg-white/70 border border-black/5 font-extrabold text-black">
+         bg-white/70 border border-black/5 font-extrabold text-black
+         text-[13px] sm:text-[14px]">
       <i class="pi pi-sparkles text-black"></i>
       <span class="text-black">{{ introTitle }}</span>
     </div>
 
     <h2 class="mt-3 mb-2 font-black text-black
-         text-[clamp(24px,3vw,36px)]">
+         text-[22px] sm:text-[28px] lg:text-[36px] leading-tight">
       منازل الروح السبعة
     </h2>
 
-    <p class="m-0 max-w-[900px] font-semibold text-slate-900/75">
+    <p class="m-0 max-w-[900px] font-semibold text-slate-900/75
+              text-[14px] sm:text-[15px] leading-relaxed">
       {{ introSub }}
     </p>
   </header>
 
-  <div class="p-3 md:p-4">
+  <div class="p-3 sm:p-4">
 
-    <!-- Steps -->
-    <p-steps [model]="items" [activeIndex]="activeIndex" class="mb-3">
-    </p-steps>
+    <!-- Steps (UNCHANGED) -->
+    <p-steps [model]="items" [activeIndex]="activeIndex" class="mb-3"></p-steps>
 
     <!-- Content Card -->
-    <div class="mt-3 bg-white border border-black/5 rounded-2xl p-4
+    <div class="mt-3 bg-white border border-black/5 rounded-2xl p-3 sm:p-4
              shadow-[0_12px_26px_rgba(0,0,0,.08)]">
 
       <!-- Top -->
-      <div class="flex justify-between items-start gap-3">
-        <div>
-          <h3 class="font-black text-slate-900 m-0">
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
+        <div class="min-w-0">
+          <h3 class="font-black text-slate-900 m-0
+                     text-[18px] sm:text-[20px] leading-snug break-words">
             {{ activeIndex + 1 }}️⃣ {{ current.title }}
           </h3>
-          <div class="mt-1 text-slate-900/70 font-bold">
+          <div class="mt-1 text-slate-900/70 font-bold text-[13px] sm:text-[14px]">
             المرحلة: {{ current.stage }}
           </div>
         </div>
 
-        <div class="flex gap-1">
-          <button pButton type="button" icon="pi pi-angle-right" class="p-button-rounded p-button-text" (click)="prev()"
+        <div class="flex gap-1 self-start sm:self-auto">
+          <button pButton type="button" icon="pi pi-angle-right"
+            class="p-button-rounded p-button-text !w-10 !h-10 sm:!w-11 sm:!h-11" (click)="prev()"
             [disabled]="activeIndex === 0">
           </button>
 
-          <button pButton type="button" icon="pi pi-angle-left" class="p-button-rounded p-button-text" (click)="next()"
+          <button pButton type="button" icon="pi pi-angle-left"
+            class="p-button-rounded p-button-text !w-10 !h-10 sm:!w-11 sm:!h-11" (click)="next()"
             [disabled]="activeIndex === steps.length - 1">
           </button>
         </div>
@@ -57,11 +62,12 @@
 
       <!-- Parents State -->
       <div *ngIf="current.parentsState?.length" class="mt-4">
-        <div class="font-black mb-2 text-slate-900">حالة الأهل</div>
+        <div class="font-black mb-2 text-slate-900 text-[14px] sm:text-[15px]">حالة الأهل</div>
         <div class="flex flex-wrap gap-2">
           <span *ngFor="let x of current.parentsState" class="px-3 py-1 rounded-full
                    bg-pink-300/30 border border-pink-300/60
-                   font-extrabold text-slate-900/85">
+                   font-extrabold text-slate-900/85
+                   text-[12px] sm:text-[13px]">
             {{ x }}
           </span>
         </div>
@@ -69,8 +75,8 @@
 
       <!-- Core Idea -->
       <div class="mt-4">
-        <div class="font-black mb-1 text-slate-900">الفكرة الأساسية</div>
-        <div class="font-semibold text-slate-900/80 leading-relaxed">
+        <div class="font-black mb-1 text-slate-900 text-[14px] sm:text-[15px]">الفكرة الأساسية</div>
+        <div class="font-semibold text-slate-900/80 leading-relaxed text-[14px] sm:text-[15px]">
           {{ current.coreIdea }}
         </div>
       </div>
@@ -79,30 +85,30 @@
       <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
 
         <div *ngIf="current.practical?.length" class="rounded-xl border border-black/5 bg-slate-900/3 p-3">
-          <div class="font-black mb-2">✅ التطبيق العملي</div>
-          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80">
-            <li *ngFor="let x of current.practical">{{ x }}</li>
+          <div class="font-black mb-2 text-[14px] sm:text-[15px]">✅ التطبيق العملي</div>
+          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80 text-[13px] sm:text-[14px]">
+            <li *ngFor="let x of current.practical" class="leading-relaxed">{{ x }}</li>
           </ul>
         </div>
 
         <div *ngIf="current.daily?.length" class="rounded-xl border border-black/5 bg-slate-900/3 p-3">
-          <div class="font-black mb-2">🕊️ تدريب يومي</div>
-          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80">
-            <li *ngFor="let x of current.daily">{{ x }}</li>
+          <div class="font-black mb-2 text-[14px] sm:text-[15px]">🕊️ تدريب يومي</div>
+          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80 text-[13px] sm:text-[14px]">
+            <li *ngFor="let x of current.daily" class="leading-relaxed">{{ x }}</li>
           </ul>
         </div>
 
         <div *ngIf="current.exercise?.length" class="rounded-xl border border-black/5 bg-slate-900/3 p-3">
-          <div class="font-black mb-2">✍️ تمرين (ورقة وقلم)</div>
-          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80">
-            <li *ngFor="let x of current.exercise">{{ x }}</li>
+          <div class="font-black mb-2 text-[14px] sm:text-[15px]">✍️ تمرين (ورقة وقلم)</div>
+          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80 text-[13px] sm:text-[14px]">
+            <li *ngFor="let x of current.exercise" class="leading-relaxed">{{ x }}</li>
           </ul>
         </div>
 
         <div *ngIf="current.effect?.length" class="rounded-xl border border-black/5 bg-slate-900/3 p-3">
-          <div class="font-black mb-2">🎯 الأثر</div>
-          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80">
-            <li *ngFor="let x of current.effect">{{ x }}</li>
+          <div class="font-black mb-2 text-[14px] sm:text-[15px]">🎯 الأثر</div>
+          <ul class="list-disc pr-5 space-y-1 font-semibold text-slate-900/80 text-[13px] sm:text-[14px]">
+            <li *ngFor="let x of current.effect" class="leading-relaxed">{{ x }}</li>
           </ul>
         </div>
 
@@ -111,7 +117,8 @@
       <!-- Message -->
       <div *ngIf="current.message" class="mt-4 p-3 rounded-xl
                bg-emerald-500/10 border border-emerald-500/20
-               font-black text-slate-900/90">
+               font-black text-slate-900/90
+               text-[13px] sm:text-[14px] leading-relaxed">
         “{{ current.message }}”
       </div>
     </div>

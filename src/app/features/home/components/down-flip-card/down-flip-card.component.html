@@ -1,17 +1,24 @@
-<div class="w-full container mx-auto">
+<div class="w-full mx-auto px-0 h-[calc(100vh-88px)]">
+  <!-- checkbox controls flip -->
   <input class="flip-toggle" type="checkbox" [id]="uid" hidden>
 
   <!-- LABEL = clickable card -->
-  <label class="flip-card " [for]="uid">
-    <div class="flip-card__inner relative w-full min-h-[420px] rounded-[20px]
+  <label class="flip-card block w-full h-full" [for]="uid">
+    <div
+      class="flip-card__inner relative w-full h-full rounded-[20px]
              [transform-style:preserve-3d]
-             transition-transform duration-700 ease-in-out
-             peer-checked:[transform:rotateY(180deg)]">
+             transition-transform duration-700 ease-in-out">
 
       <!-- FRONT -->
-      <div class="flip-card__face bg-[#fff]">
-        <img [src]="img" [alt]="title" class="w-full h-full object-cover block" />
-        <div class="absolute left-4 bottom-4
+      <div class="flip-card__face bg-white">
+        <img
+          [src]="img"
+          [alt]="title"
+          class="w-full h-full object-cover block"
+        />
+
+        <div
+          class="absolute left-4 bottom-4
                  px-4 py-3 rounded-2xl
                  bg-white/80 border border-black/10
                  backdrop-blur-md">
@@ -22,45 +29,62 @@
 
       <!-- BACK -->
       <div class="flip-card__face flip-card__back">
-        <div class="p-4">
+        <!-- scroll inside card -->
+        <div class="p-4 h-full overflow-auto">
           <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
             <div class="d-flex align-items-center gap-2">
               <i class="pi pi-sparkles"></i>
               <h3 class="m-0 fw-bold">{{ title }}</h3>
             </div>
 
-            <!-- close by clicking this label -->
-            <span class="px-3 py-1.5 rounded-full text-[13px] font-semibold
-                     bg-white/20 border border-white/35">رجوع</span>
+            <span
+              class="px-3 py-1.5 rounded-full text-[13px] font-semibold
+                     bg-white/20 border border-white/35">
+              رجوع
+            </span>
           </div>
 
-          <p class="mb-3 text-white-50">{{ desc }}</p>
+          <p class="mb-3 text-white-75">{{ desc }}</p>
 
-          <ul class="mb-0 text-white-50">
-            <li>
-              مشروع <strong>"خطوات بطل"</strong> هو مبادرة إنسانية تربوية توعوية تهدف إلى دعم أمهات وأسر الأطفال من ذوي
+                <div class="text-white-75 leading-relaxed space-y-3">
+            <p>
+              موقع <strong>"خطوات بطل"</strong> هو مبادرة إنسانية تربوية توعوية تهدف إلى دعم أمهات وأسر الأطفال من ذوي
               الهمم،
-              خاصة أطفال متلازمة داون، من خلال منهج متكامل يجمع بين العلم والرحمة والإيمان.
-            </li>
-            <li>
-              يقوم المشروع على مبدأ <strong>الإحسان</strong>؛ إتقان الرعاية، وإحسان العطاء، والتعامل مع الطفل وأسرته
-              بوعي
-              نفسي وإنساني وروحي، وليس فقط من الجانب الطبي أو التعليمي.
-            </li>
-            <li>
-              يرتكز المشروع على <strong>منازل الروح السبعة</strong>: التقوى، اليقين، التوكل، التسليم، الرضا، العبودية،
-              ومحبة الله،
-              ويتم تحويلها إلى خطوات عملية تساعد الأم على التقبّل، واستعادة قوتها، وبناء الأمل والعمل.
-            </li>
-            <li>
-              تأثير <strong>"خطوات بطل"</strong> يمتد لبناء أم واعية، وأسرة متماسكة، وتغيير نظرة المجتمع من الشفقة
-              إلى الفهم والاحتواء والتمكين.
-            </li>
-            <li> نحن لا نصنع رحلة علاج فقط، بل رحلة وعي وصبر وأمل وإحسان،
-              فـ <strong>"خطوات بطل"</strong> هو بناء للإنسان قبل المهارة، وبناء للروح قبل علاج الجسد.
-            </li>
-          </ul>
+              خاصة أبطال متلازمة داون، من خلال منهج متكامل يجمع بين العلم والرحمة والإيمان.
+            </p>
 
+            <p>
+              يقوم المشروع على مبدأ <strong>"الإحسان"</strong>؛ أي أن نُتقن الرعاية، ونُحسن العطاء،
+              ونتعامل مع الطفل وأسرته بمنتهى الرحمة والوعي والمسؤولية،
+              ليس فقط على المستوى الطبي أو التعليمي المبكر،
+              بل على المستوى النفسي والإنساني والروحي أيضًا.
+            </p>
+
+            <p>
+              ويرتكز الموقع على ما نُسميه <strong>"منازل الروح السبعة"</strong>،
+              وهي: التقوى، ثم اليقين، ثم التوكل، ثم التسليم، ثم الرضا، ثم العبودية، ثم محبة الله.
+              وهذه المنازل ليست مفاهيم نظرية،
+              بل تتحول إلى خطوات عملية تساعد الأم على استعادة قوتها النفسية،
+              والتعامل مع طفلها بثبات وأمل،
+              والتحول من حالة الصدمة والخوف إلى حالة السكينة والعمل والبناء،
+              مع تمكينها من الابتعاد عن الاحتراق النفسي،
+              وحُسن إدارتها لعجلة حياتها وعجلة حياة <strong>"بطلها"</strong> في يسر وسلاسة.
+            </p>
+
+            <p>
+              لا يقتصر موقع <strong>"خطوات بطل"</strong> على مساعدة طفل واحد أو أسرة واحدة فحسب،
+              بل يهدف إلى بناء أم واعية نفسيًا وفكريًا،
+              وأسرة متماسكة قادرة على العطاء،
+              وتغيير نظرة المجتمع من الشفقة إلى الفهم والاحتواء والتمكين.
+            </p>
+
+            <p>
+              نحن لا نصنع فقط رحلة علاج،
+              بل نصنع رحلة وعي، وصبر، وأمل، وإحسان.
+              فـ <strong>"خطوات بطل"</strong> هو مشروع لبناء الإنسان قبل بناء المهارة،
+              وبناء الروح قبل علاج الجسد.
+            </p>
+          </div>
         </div>
       </div>
 

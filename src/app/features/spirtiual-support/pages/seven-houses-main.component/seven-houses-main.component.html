@@ -1,5 +1,5 @@
-<section class="tabs-shell" dir="rtl">
-  <p-tabs value="intro">
+<section dir="rtl" class="block px-2 sm:px-3 lg:px-4">
+  <p-tabs value="intro" class="block">
     <p-tablist>
       <p-tab value="intro">🌿 التعريف والفكرة</p-tab>
       <p-tab value="steps">🧭 التطبيق العملي (المراحل)</p-tab>
@@ -16,35 +16,102 @@
       </p-tabpanel>
 
       <p-tabpanel value="ihsan">
-        <div class="ihsan-links">
-          <div class="ihsan-head">
-            <div class="ihsan-badge">
-              <i class="pi pi-sparkles"></i>
+        <div class="grid gap-3 sm:gap-4 px-1 sm:px-2 py-3">
+          <div class="rounded-2xl border border-black/5 bg-white/70 p-3 sm:p-4 backdrop-blur-[10px]">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3 py-2 font-extrabold text-slate-800">
+              <i class="pi pi-sparkles text-purple-500"></i>
               <span>بوابة أكاديمية الإحسان</span>
             </div>
 
-            <h3 class="ihsan-title">محتوى تربوي وروحي يساعدك تكمّلي الرحلة بوعي 🌱</h3>
+            <!-- Title -->
+            <h3 class="mt-3 mb-2 font-black text-slate-900 leading-relaxed text-[clamp(18px,2.2vw,22px)]">
+              محتوى تربوي وروحي يساعدك تكمّلي الرحلة بوعي 🌱
+            </h3>
 
-            <p class="ihsan-desc">
+            <!-- Desc -->
+            <p class="m-0 text-slate-600 text-sm leading-[1.85]">
               لو حابة تتعمّقي أكتر: محاضرات، برامج، ومسارات تساعد في بناء الوعي، تهذيب النفس،
               وتقوية المعنى خلال رحلة “منازل الروح السبعة”.
-              هنا بنحط لك الرابط الرسمي عشان توصلي بسرعة وبوضوح.
+              هنا بنحط لك الروابط الرسمية عشان توصلي بسرعة وبوضوح.
             </p>
 
-            <div class="ihsan-actions">
-              <a
-                class="ihsan-btn"
-                href="https://academy.ihsanlife.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                زيارة أكاديمية الإحسان
-                <i class="pi pi-external-link"></i>
-              </a>
+            <!-- Links card -->
+            <div class="mt-3 rounded-2xl border border-black/5 bg-white/60 p-3 sm:p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 font-black text-slate-900">
+                <i class="pi pi-link"></i>
+                <span>روابط رسمية</span>
+              </div>
+
+              <!-- ✅ HTML controls spacing + responsive layout -->
+              <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-3 lg:gap-5">
+                <a
+                  class="inline-flex items-center justify-between gap-3 rounded-xl border border-black/5
+                         bg-[linear-gradient(135deg,rgba(14,165,166,0.18),rgba(184,92,0,0.14))]
+                         px-4 py-2 font-extrabold text-slate-900 no-underline
+                         transition-transform duration-150 ease-out hover:-translate-y-[1px]
+                         hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]
+                         w-full sm:w-auto"
+                  href="https://academy.ihsanlife.com/" target="_blank" rel="noopener noreferrer">
+                  <span>زيارة أكاديمية الإحسان</span>
+                  <i class="pi pi-external-link text-[14px] opacity-90"></i>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-between gap-3 rounded-xl border border-black/5
+                         bg-[linear-gradient(135deg,rgba(14,165,166,0.18),rgba(184,92,0,0.14))]
+                         px-4 py-2 font-extrabold text-slate-900 no-underline
+                         transition-transform duration-150 ease-out hover:-translate-y-[1px]
+                         hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]
+                         w-full sm:w-auto"
+                  href="https://www.instagram.com/ihsan_academy?igsh=MWF4ZmI5OWNiazQwYg==" target="_blank" rel="noopener noreferrer">
+                  <span>صفحة الإنستاجرام</span>
+                  <i class="pi pi-instagram text-[14px] opacity-90"></i>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-between gap-3 rounded-xl border border-black/5
+                         bg-[linear-gradient(135deg,rgba(14,165,166,0.18),rgba(184,92,0,0.14))]
+                         px-4 py-2 font-extrabold text-slate-900 no-underline
+                         transition-transform duration-150 ease-out hover:-translate-y-[1px]
+                         hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]
+                         w-full sm:w-auto"
+                  href="https://whatsapp.com/channel/0029VaahhdB4inosqCxZyl0M" target="_blank" rel="noopener noreferrer">
+                  <span>قناة الواتساب</span>
+                  <i class="pi pi-whatsapp text-[14px] opacity-90"></i>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-between gap-3 rounded-xl border border-black/5
+                         bg-[linear-gradient(135deg,rgba(14,165,166,0.18),rgba(184,92,0,0.14))]
+                         px-4 py-2 font-extrabold text-slate-900 no-underline
+                         transition-transform duration-150 ease-out hover:-translate-y-[1px]
+                         hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]
+                         w-full sm:w-auto"
+                  href="https://www.facebook.com/share/17i1iuJUJS/" target="_blank" rel="noopener noreferrer">
+                  <span>صفحة الفيسبوك</span>
+                  <i class="pi pi-facebook text-[14px] opacity-90"></i>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-between gap-3 rounded-xl border border-black/5
+                         bg-[linear-gradient(135deg,rgba(14,165,166,0.18),rgba(184,92,0,0.14))]
+                         px-4 py-2 font-extrabold text-slate-900 no-underline
+                         transition-transform duration-150 ease-out hover:-translate-y-[1px]
+                         hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]
+                         w-full sm:w-auto"
+                  href="https://vt.tiktok.com/ZSa98xGVj/" target="_blank" rel="noopener noreferrer">
+                  <span>فيديو تعريفي عن الأكاديمية</span>
+                  <i class="pi pi-video text-[14px] opacity-90"></i>
+                </a>
+              </div>
+
+              <div class="flex items-center gap-2 text-slate-600 text-sm">
+                <i class="pi pi-info-circle"></i>
+                <span>ملاحظة: كل الروابط بتفتح في تبويب جديد.</span>
+              </div>
             </div>
           </div>
-
-
         </div>
       </p-tabpanel>
     </p-tabpanels>
