@@ -239,5 +239,47 @@
         </ul>
       </div>
     </section>
+
+
+    <!-- TAB 7: محتوى أكاديمي -->
+<section *ngIf="activeTab === 'theory'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+  <div class="flex items-center gap-2">
+    <i class="pi pi-book text-emerald-600"></i>
+    <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">
+      المحتوى الأكاديمي والأساليب التعليمية
+    </h2>
+  </div>
+
+  <p class="mt-3 text-slate-800/80 leading-8 font-semibold">
+    هنا تجميع منظم لمحتوى الأساليب التعليمية، النظريات، والتعليم بالفن والدراما… بشكل سهل للقراءة والبحث.
+  </p>
+
+  <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
+    <article
+      *ngFor="let sec of filtered(academicSections)"
+      class="rounded-3xl border border-black/5 bg-emerald-500/[0.06] p-4"
+    >
+      <div class="flex items-start gap-3">
+        <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+          <i class="{{ sec.icon }} text-emerald-700"></i>
+        </div>
+
+        <div class="min-w-0 w-full">
+          <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">
+            {{ sec.title }}
+          </div>
+
+          <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7">
+            <li *ngFor="let p of sec.items" class="flex gap-2">
+              <span class="mt-2 w-2 h-2 rounded-full bg-emerald-500/70 shrink-0"></span>
+              <span>{{ p }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
   </div>
 </section>

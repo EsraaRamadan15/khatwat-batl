@@ -66,9 +66,9 @@ export class HomeComponent {
       badge: 'اتزان',
       icon: 'pi pi-face-smile',
       link: '/cards/mental-support',
-      from: '#0EA5A6',
-      to: '#22C55E',
-      tint: 'rgba(14,165,166,.10)',
+         from: '#06B6D4',
+      to: '#3B82F6',
+      tint: 'rgba(6,182,212,.10)',
     },
 
     {
