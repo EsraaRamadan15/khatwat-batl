@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+
+/* PrimeNG tabs only (minimal) */
+.p-tablist{
+  display:flex;
+  width:100%;
+  gap:10px;
+  padding:10px;
+  border-radius:16px;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow:0 10px 26px rgba(2,6,23,.08);
+  background:
+    radial-gradient(900px 260px at 85% -20%, rgba(16,185,129,.16), transparent 60%),
+    radial-gradient(700px 240px at 10% 20%, rgba(20,184,166,.12), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+  flex-wrap: wrap; /* mobile friendly */
+}
+
+.p-tablist .p-tab{
+  flex:1 1 0;
+  min-width:0;
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  padding:12px 10px;
+  border-radius:14px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(17,24,39,.10);
+  color:rgba(17,24,39,.88);
+  font-weight:900;
+  white-space: nowrap;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.p-tablist .p-tab:hover{
+  transform: translateY(-1px);
+  box-shadow:0 10px 18px rgba(2,6,23,.10);
+  border-color:rgba(16,185,129,.22);
+}
+
+.p-tablist .p-tab.p-tab-active{
+  background:rgba(16,185,129,.16);
+  border-color:rgba(16,185,129,.30);
+  color:rgba(17,24,39,.92);
+}
+
+.p-tablist .p-tab-indicator{ display:none; }
+.p-tabpanels{ margin-top:12px; background:transparent; }
+
+/* ✅ Mobile: each tab full row (clean) */
+@media (max-width: 520px){
+  //.p-tablist{ gap:8px; padding:8px;  }
+  .p-tablist .p-tab{ flex:1 1 100%; width:100%; font-size:14px; }
+ ::ng-deep .p-tablist-tab-list{ flex-direction: column !important; gap:8px; }
+}
+
+/* ✅ Mid: 2 per row */
+@media (min-width: 521px) and (max-width: 900px){
+  .p-tablist .p-tab{ flex:1 1 calc(50% - 6px); width:calc(50% - 6px); }
+}
+

@@ -1,45 +1,64 @@
-<section dir="rtl" class="mx-auto max-w-[1100px] px-3 md:px-6 py-6">
+<section dir="rtl" class="mx-auto w-full max-w-[1100px] px-3 sm:px-4 md:px-6 py-4 sm:py-6">
   <!-- HERO -->
   <header class="rounded-3xl border border-black/5 shadow-sm overflow-hidden bg-white">
-    <div class="p-5 md:p-8 bg-gradient-to-br from-rose-500/10 via-sky-500/10 to-emerald-500/10">
-      <div class="inline-flex items-center gap-2 rounded-full bg-white/80 border border-black/10 px-3 py-2 font-extrabold text-slate-800">
+    <div class="p-4 sm:p-5 md:p-8 bg-gradient-to-br from-rose-500/10 via-sky-500/10 to-emerald-500/10">
+      <div
+        class="inline-flex items-center gap-2 rounded-full bg-white/80 border border-black/10
+               px-3 py-2 font-extrabold text-slate-800 text-[12px] sm:text-[13px] md:text-[14px]"
+      >
         <i class="pi pi-book text-rose-500"></i>
-        <span>أساليب تعليمية لأطفال متلازمة داون</span>
+        <span class="leading-6">أساليب تعليمية لأطفال متلازمة داون</span>
       </div>
 
-      <h1 class="mt-4 text-[24px] md:text-[40px] font-extrabold text-slate-900 leading-tight">
+      <h1
+        class="mt-3 sm:mt-4 font-extrabold text-slate-900 leading-tight
+               text-[clamp(22px,4.2vw,40px)]"
+      >
         أدوات تعليم فعّالة + اكتشاف نقاط القوة
       </h1>
 
-      <p class="mt-3 text-slate-800/80 leading-8 font-semibold max-w-[980px]">
+      <p class="mt-3 text-slate-800/80 leading-7 sm:leading-8 font-semibold max-w-[980px] text-[14px] sm:text-[15px] md:text-[16px]">
         تعتمد أدوات التعلم الفعّالة على تعزيز نقاط القوة البصرية، والمشاركة الحسية، والروتين المنظم
         لدعم التطوّر المعرفي والحركي — مع التركيز على نقاط القوة وليس التحديات فقط.
       </p>
 
-      <!-- Search -->
-      <div class="mt-5 flex flex-col md:flex-row gap-2 md:items-center">
-        <div class="relative w-full md:max-w-[420px]">
+      <!-- Search + Tabs -->
+      <div class="mt-4 sm:mt-5 flex flex-col lg:flex-row gap-3 lg:items-center">
+        <!-- Search -->
+        <div class="relative w-full lg:max-w-[420px]">
           <i class="pi pi-search absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
           <input
             [(ngModel)]="search"
-            class="w-full rounded-2xl border border-black/10 bg-white/90 px-10 py-3 font-semibold text-slate-800 outline-none
-                   focus:ring-2 focus:ring-rose-300"
+            class="w-full rounded-2xl border border-black/10 bg-white/90 pr-10 pl-3
+                   py-2.5 sm:py-3 font-semibold text-slate-800 outline-none
+                   focus:ring-2 focus:ring-rose-300 text-[14px] sm:text-[15px]"
             placeholder="ابحثي داخل الأدوات… (مثال: Numicon / PECS / جداول بصرية)"
           />
         </div>
 
-        <div class="flex flex-wrap gap-2">
-          <button
-            *ngFor="let t of tabs"
-            (click)="activeTab = t.key"
-            class="rounded-full px-4 py-2 text-[13px] font-extrabold border transition"
-            [ngClass]="activeTab === t.key
-              ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-              : 'bg-white text-slate-700 border-black/10 hover:bg-slate-50'"
+        <!-- Tabs (mobile: horizontal scroll) -->
+        <div class="w-full">
+          <div
+            class="flex gap-2 lg:flex-wrap
+                   overflow-x-auto lg:overflow-visible
+                   whitespace-nowrap lg:whitespace-normal
+                   -mx-3 sm:-mx-4 md:mx-0 px-3 sm:px-4 md:px-0 py-1
+                   [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            <i class="{{ t.icon }} ml-1"></i>
-            {{ t.label }}
-          </button>
+            <button
+              *ngFor="let t of tabs"
+              (click)="activeTab = t.key"
+              class="shrink-0 rounded-full px-3 sm:px-4 py-2 text-[12px] sm:text-[13px]
+                     font-extrabold border transition
+                     focus:outline-none focus:ring-2 focus:ring-rose-300"
+              [ngClass]="activeTab === t.key
+                ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                : 'bg-white text-slate-700 border-black/10 hover:bg-slate-50'"
+            >
+              <i class="{{ t.icon }} ml-1"></i>
+              {{ t.label }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -48,38 +67,40 @@
   <!-- CONTENT -->
   <div class="mt-4 space-y-4">
     <!-- TAB 1: برامج تعليمية -->
-    <section *ngIf="activeTab === 'programs'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'programs'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-bolt text-emerald-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">البرامج التعليمية الأساسية</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          البرامج التعليمية الأساسية
+        </h2>
       </div>
 
-      <p class="mt-3 text-slate-800/80 leading-8 font-semibold">
+      <p class="mt-3 text-slate-800/80 leading-7 sm:leading-8 font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
         تعتمد البرامج المتخصصة على نهج “من الأعلى إلى الأسفل” (الكلمة الكاملة)، والذي قد يسمح للطفل بتعلّم القراءة قبل التحدث.
       </p>
 
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article
           *ngFor="let x of filtered(programs)"
-          class="rounded-3xl border border-black/5 bg-slate-900/[0.02] p-4"
+          class="rounded-3xl border border-black/5 bg-slate-900/[0.02] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-emerald-500/10 border border-emerald-500/15 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-emerald-500/10 border border-emerald-500/15 shrink-0">
               <i class="{{ x.icon }} text-emerald-700"></i>
             </div>
 
             <div class="min-w-0">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
                 {{ x.name }}
               </div>
-              <div class="mt-1 text-slate-700/80 font-bold text-[13px]">
+              <div class="mt-1 text-slate-700/80 font-bold text-[12px] sm:text-[13px] break-words">
                 {{ x.tag }}
               </div>
 
-              <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7">
+              <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px]">
                 <li *ngFor="let p of x.points" class="flex gap-2">
                   <span class="mt-2 w-2 h-2 rounded-full bg-emerald-500/60 shrink-0"></span>
-                  <span>{{ p }}</span>
+                  <span class="min-w-0 break-words">{{ p }}</span>
                 </li>
               </ul>
             </div>
@@ -89,29 +110,33 @@
     </section>
 
     <!-- TAB 2: أدوات بصرية وتنظيمية -->
-    <section *ngIf="activeTab === 'visual'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'visual'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-eye text-sky-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">الأدوات البصرية والتنظيمية</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          الأدوات البصرية والتنظيمية
+        </h2>
       </div>
 
-      <p class="mt-3 text-slate-800/80 leading-8 font-semibold">
+      <p class="mt-3 text-slate-800/80 leading-7 sm:leading-8 font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
         لأن المعالجة السمعية قد تكون أضعف نسبيًا، فالوسائل البصرية مهمة للتوجيه اليومي وتقليل القلق.
       </p>
 
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article
           *ngFor="let x of filtered(visualTools)"
-          class="rounded-3xl border border-black/5 bg-sky-500/[0.06] p-4"
+          class="rounded-3xl border border-black/5 bg-sky-500/[0.06] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
               <i class="{{ x.icon }} text-sky-700"></i>
             </div>
 
             <div class="min-w-0">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">{{ x.name }}</div>
-              <p class="mt-2 text-slate-800/80 font-semibold leading-7">
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
+                {{ x.name }}
+              </div>
+              <p class="mt-2 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px] break-words">
                 {{ x.desc }}
               </p>
             </div>
@@ -121,24 +146,28 @@
     </section>
 
     <!-- TAB 3: تطبيقات رقمية -->
-    <section *ngIf="activeTab === 'apps'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'apps'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-mobile text-rose-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">تطبيقات التعلم الرقمية</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          تطبيقات التعلم الرقمية
+        </h2>
       </div>
 
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article
           *ngFor="let x of filtered(apps)"
-          class="rounded-3xl border border-black/5 bg-rose-500/[0.06] p-4"
+          class="rounded-3xl border border-black/5 bg-rose-500/[0.06] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
               <i class="{{ x.icon }} text-rose-700"></i>
             </div>
             <div class="min-w-0">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">{{ x.name }}</div>
-              <p class="mt-2 text-slate-800/80 font-semibold leading-7">
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
+                {{ x.name }}
+              </div>
+              <p class="mt-2 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px] break-words">
                 {{ x.desc }}
               </p>
             </div>
@@ -148,24 +177,30 @@
     </section>
 
     <!-- TAB 4: حسّي وحركي -->
-    <section *ngIf="activeTab === 'sensory'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'sensory'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-sliders-h text-amber-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">أدوات التطوير الحسي والحركي</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          أدوات التطوير الحسي والحركي
+        </h2>
       </div>
 
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article
           *ngFor="let x of filtered(sensoryTools)"
-          class="rounded-3xl border border-black/5 bg-amber-500/[0.07] p-4"
+          class="rounded-3xl border border-black/5 bg-amber-500/[0.07] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
               <i class="{{ x.icon }} text-amber-700"></i>
             </div>
             <div class="min-w-0">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">{{ x.name }}</div>
-              <p class="mt-2 text-slate-800/80 font-semibold leading-7">{{ x.desc }}</p>
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
+                {{ x.name }}
+              </div>
+              <p class="mt-2 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px] break-words">
+                {{ x.desc }}
+              </p>
             </div>
           </div>
         </article>
@@ -173,24 +208,30 @@
     </section>
 
     <!-- TAB 5: تواصل -->
-    <section *ngIf="activeTab === 'comm'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'comm'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-comments text-teal-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">وسائل المساعدة على التواصل</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          وسائل المساعدة على التواصل
+        </h2>
       </div>
 
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         <article
           *ngFor="let x of filtered(commTools)"
-          class="rounded-3xl border border-black/5 bg-teal-500/[0.06] p-4"
+          class="rounded-3xl border border-black/5 bg-teal-500/[0.06] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
               <i class="{{ x.icon }} text-teal-700"></i>
             </div>
             <div class="min-w-0">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">{{ x.name }}</div>
-              <p class="mt-2 text-slate-800/80 font-semibold leading-7">{{ x.desc }}</p>
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
+                {{ x.name }}
+              </div>
+              <p class="mt-2 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px] break-words">
+                {{ x.desc }}
+              </p>
             </div>
           </div>
         </article>
@@ -198,30 +239,32 @@
     </section>
 
     <!-- TAB 6: اكتشاف نقاط القوة -->
-    <section *ngIf="activeTab === 'strength'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
+    <section *ngIf="activeTab === 'strength'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
       <div class="flex items-center gap-2">
         <i class="pi pi-star text-indigo-600"></i>
-        <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">أدوات تساعد على اكتشاف نقاط القوة</h2>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          أدوات تساعد على اكتشاف نقاط القوة
+        </h2>
       </div>
 
       <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
         <article
           *ngFor="let sec of filtered(strengthSections)"
-          class="rounded-3xl border border-black/5 bg-indigo-500/[0.06] p-4"
+          class="rounded-3xl border border-black/5 bg-indigo-500/[0.06] p-4 h-full"
         >
           <div class="flex items-start gap-3">
-            <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
               <i class="{{ sec.icon }} text-indigo-700"></i>
             </div>
             <div class="min-w-0 w-full">
-              <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
                 {{ sec.title }}
               </div>
 
-              <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7">
+              <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px]">
                 <li *ngFor="let p of sec.items" class="flex gap-2">
                   <span class="mt-2 w-2 h-2 rounded-full bg-indigo-500/60 shrink-0"></span>
-                  <span>{{ p }}</span>
+                  <span class="min-w-0 break-words">{{ p }}</span>
                 </li>
               </ul>
             </div>
@@ -231,55 +274,53 @@
 
       <div class="mt-4 rounded-3xl bg-emerald-500/10 border border-emerald-500/15 p-4">
         <div class="font-extrabold text-slate-900">⭐ ملاحظة مهمة</div>
-        <ul class="mt-2 space-y-1.5 text-slate-800/80 font-semibold leading-7">
+        <ul class="mt-2 space-y-1.5 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px]">
           <li *ngFor="let x of strengthNote" class="flex gap-2">
             <span class="mt-2 w-2 h-2 rounded-full bg-emerald-500/70 shrink-0"></span>
-            <span>{{ x }}</span>
+            <span class="min-w-0 break-words">{{ x }}</span>
           </li>
         </ul>
       </div>
     </section>
 
-
     <!-- TAB 7: محتوى أكاديمي -->
-<section *ngIf="activeTab === 'theory'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-5 md:p-6">
-  <div class="flex items-center gap-2">
-    <i class="pi pi-book text-emerald-600"></i>
-    <h2 class="m-0 text-[18px] md:text-[22px] font-extrabold text-slate-900">
-      المحتوى الأكاديمي والأساليب التعليمية
-    </h2>
-  </div>
-
-  <p class="mt-3 text-slate-800/80 leading-8 font-semibold">
-    هنا تجميع منظم لمحتوى الأساليب التعليمية، النظريات، والتعليم بالفن والدراما… بشكل سهل للقراءة والبحث.
-  </p>
-
-  <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
-    <article
-      *ngFor="let sec of filtered(academicSections)"
-      class="rounded-3xl border border-black/5 bg-emerald-500/[0.06] p-4"
-    >
-      <div class="flex items-start gap-3">
-        <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
-          <i class="{{ sec.icon }} text-emerald-700"></i>
-        </div>
-
-        <div class="min-w-0 w-full">
-          <div class="font-extrabold text-slate-900 text-[16px] md:text-[18px]">
-            {{ sec.title }}
-          </div>
-
-          <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7">
-            <li *ngFor="let p of sec.items" class="flex gap-2">
-              <span class="mt-2 w-2 h-2 rounded-full bg-emerald-500/70 shrink-0"></span>
-              <span>{{ p }}</span>
-            </li>
-          </ul>
-        </div>
+    <section *ngIf="activeTab === 'theory'" class="rounded-3xl bg-white border border-black/5 shadow-sm p-4 sm:p-5 md:p-6">
+      <div class="flex items-center gap-2">
+        <i class="pi pi-book text-emerald-600"></i>
+        <h2 class="m-0 font-extrabold text-slate-900 text-[16px] sm:text-[18px] md:text-[22px]">
+          المحتوى الأكاديمي والأساليب التعليمية
+        </h2>
       </div>
-    </article>
-  </div>
-</section>
 
+      <p class="mt-3 text-slate-800/80 leading-7 sm:leading-8 font-semibold text-[14px] sm:text-[15px] md:text-[16px]">
+        هنا تجميع منظم لمحتوى الأساليب التعليمية، النظريات، والتعليم بالفن والدراما… بشكل سهل للقراءة والبحث.
+      </p>
+
+      <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <article
+          *ngFor="let sec of filtered(academicSections)"
+          class="rounded-3xl border border-black/5 bg-emerald-500/[0.06] p-4 h-full"
+        >
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl grid place-items-center bg-white border border-black/10 shrink-0">
+              <i class="{{ sec.icon }} text-emerald-700"></i>
+            </div>
+
+            <div class="min-w-0 w-full">
+              <div class="font-extrabold text-slate-900 text-[15px] sm:text-[16px] md:text-[18px] break-words">
+                {{ sec.title }}
+              </div>
+
+              <ul class="mt-3 space-y-1.5 text-slate-800/80 font-semibold leading-7 text-[13px] sm:text-[14px] md:text-[15px]">
+                <li *ngFor="let p of sec.items" class="flex gap-2">
+                  <span class="mt-2 w-2 h-2 rounded-full bg-emerald-500/70 shrink-0"></span>
+                  <span class="min-w-0 break-words">{{ p }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
   </div>
 </section>

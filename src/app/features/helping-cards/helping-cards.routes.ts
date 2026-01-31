@@ -37,10 +37,10 @@ export const Helping_CARDS_ROUTES: Routes = [
       ),
   },
   {
-    path: 'hub-suppor',
+    path: 'health-support',
     loadComponent: () =>
-      import('./components/down-support-hub/down-support-hub.component').then(
-        (m) => m.DownSupportHubComponent,
+      import('./components/health-support/health-support.component').then(
+        (m) => m.HealthSupportComponent,
       ),
   },
   {
