@@ -807,16 +807,29 @@ export class DownSupportHubComponent {
     // =========================
     // 13) أسماء مصادر عامة بدون روابط (لا نهملها)
     // =========================
+{
+  kind: 'links',
+  title: 'مصادر طبية وجينية موثوقة',
+  desc: 'روابط رسمية لمصادر موثوقة ذُكرت في المحتوى ويمكن الرجوع إليها للمعلومات الطبية والوراثية.',
+  items: [
     {
-      kind: 'cards',
-      title: 'مصادر/أسماء ذُكرت (بحاجة لرابط رسمي)',
-      desc: 'ذُكرت لديك هذه الأسماء: يمكننا لاحقًا إضافة روابطها الرسمية داخل قسم الروابط.',
-      items: [
-        { title: 'Zora Health', icon: 'pi pi-link', points: ['اسم مذكور ضمن مصادر/جهات مقترحة (بحاجة للرابط الرسمي).'] },
-        { title: 'Mayo Clinic', icon: 'pi pi-link', points: ['اسم مذكور ضمن مصادر/جهات مقترحة (بحاجة للرابط الرسمي).'] },
-        { title: 'Genetic Diagnostic Center', icon: 'pi pi-link', points: ['اسم مذكور ضمن مصادر/جهات مقترحة (بحاجة للرابط الرسمي).'] },
-      ],
+      title: 'Zora Health',
+      url: 'https://zorahealth.co/',
+      note: 'منصة صحية تقدّم محتوى وخدمات متعلقة بالصحة الوراثية والدعم الطبي.'
     },
+    {
+      title: 'Mayo Clinic',
+      url: 'https://www.mayoclinic.org/',
+      note: 'أحد أهم المراجع الطبية العالمية المعتمدة للمعلومات الصحية والعلاجية.'
+    },
+    {
+      title: 'Genetic Diagnostic Center – Egypt',
+      url: 'https://gdc-egypt.com/',
+      note: 'مركز متخصص في التحاليل الوراثية وتشخيص الاضطرابات الجينية.'
+    }
+  ],
+},
+
   ];
 
   get filteredSections(): Section[] {
