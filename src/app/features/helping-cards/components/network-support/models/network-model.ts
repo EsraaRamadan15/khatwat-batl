@@ -4,7 +4,7 @@ export type ScopeFilter = Scope | 'all';
 export type FaqItem = {
   q: string;
   a: string;
-  tag?: 'مشاعر' | 'دمج' | 'دعم' | 'قياس' | 'منهج الإحسان';
+  tag?: 'مشاعر' | 'دمج' | 'دعم' | 'قياس' | 'منهج الإحسان'|'خدمات';
 };
 
 export type VideoProvider = 'youtube' | 'facebook' | 'link';
